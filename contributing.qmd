@@ -4,7 +4,7 @@ title: "Contributing"
 
 ## Ways to contribute
 
-Contributions are welcome—both from R users and from researchers interested in calendrical/time-series applications.
+Contributions are welcome from R users, developers, and researchers.
 
 You can contribute by:
 
@@ -16,7 +16,7 @@ You can contribute by:
 
 ## Where to contribute
 
-- GitHub repository: https://github.com/neerajdhanraj/VedicDateTime
+- Repository: https://github.com/neerajdhanraj/VedicDateTime
 - Issues: https://github.com/neerajdhanraj/VedicDateTime/issues
 
 ## Reporting a bug (checklist)
@@ -35,8 +35,6 @@ Please include:
 - Prefer clear return formats and documented units
 - Add tests for edge cases (skipped/leap entities, midnight-crossing end times)
 
-## Acknowledgements / Funding
+## Funding acknowledgement
 
 Early development of this package was funded through **Google Summer of Code (GSoC)** in multiple years.
-
-(If you would like, we can add a dedicated “Funding” section listing the exact years/organizations once confirmed.)
