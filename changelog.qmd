@@ -6,5 +6,5 @@ title: "Changelog"
 
 VedicDateTime releases are tracked on CRAN and GitHub.
 
-- CRAN: https://cran.r-project.org/package=VedicDateTime
-- GitHub releases: https://github.com/neerajdhanraj/VedicDateTime/releases
+- CRAN: [cran.r-project.org/package=VedicDateTime](https://cran.r-project.org/package=VedicDateTime)
+- GitHub releases: [github.com/neerajdhanraj/VedicDateTime/releases](https://github.com/neerajdhanraj/VedicDateTime/releases)

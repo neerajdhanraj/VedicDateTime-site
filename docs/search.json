@@ -35,25 +35,25 @@
     "text": "Dependencies\nThe CRAN metadata indicates the package imports swephR (Swiss Ephemeris bindings), consistent with the paper’s discussion."
   },
   {
-    "objectID": "reference.html#next-step-full-auto-generated-function-docs-optional",
-    "href": "reference.html#next-step-full-auto-generated-function-docs-optional",
+    "objectID": "reference.html#full-api-reference-pkgdown",
+    "href": "reference.html#full-api-reference-pkgdown",
     "title": "Reference",
-    "section": "Next step: full auto-generated function docs (optional)",
-    "text": "Next step: full auto-generated function docs (optional)\nIf you want truly “complete” documentation on the website (argument tables, return values, examples straight from roxygen), the standard approach is to publish a pkgdown site.\nIf you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date."
+    "section": "Full API reference (pkgdown)",
+    "text": "Full API reference (pkgdown)\nThe complete, auto-generated API reference (built from the package documentation) is available here:\n\nAPI Reference (pkgdown)\n\nThis includes function arguments, return values, and the full reference index."
   },
   {
     "objectID": "publications.html",
     "href": "publications.html",
     "title": "Publication",
     "section": "",
-    "text": "The VedicDateTime package is described in the following peer‑reviewed paper:\nVedicDateTime: An R package to implement Vedic calendar system\nNeeraj Dhanraj Bokde, Prajwal Kailasnath Patil, Saradindu Sengupta, Manisha Sawant, Andrés E. Feijóo‑Lorenzo\nMultimedia Tools and Applications (2023)\n\nSpringer page: https://link.springer.com/article/10.1007/s11042-023-16553-w\nDOI: https://doi.org/10.1007/s11042-023-16553-w"
+    "text": "The VedicDateTime package is described in the following peer‑reviewed paper:\nVedicDateTime: An R package to implement Vedic calendar system\nNeeraj Dhanraj Bokde, Prajwal Kailasnath Patil, Saradindu Sengupta, Manisha Sawant, Andrés E. Feijóo‑Lorenzo\nMultimedia Tools and Applications (2023)\n\nSpringer page: link.springer.com/article/10.1007/s11042-023-16553-w\nDOI: doi.org/10.1007/s11042-023-16553-w"
   },
   {
     "objectID": "publications.html#peer-reviewed-paper-open-access",
     "href": "publications.html#peer-reviewed-paper-open-access",
     "title": "Publication",
     "section": "",
-    "text": "The VedicDateTime package is described in the following peer‑reviewed paper:\nVedicDateTime: An R package to implement Vedic calendar system\nNeeraj Dhanraj Bokde, Prajwal Kailasnath Patil, Saradindu Sengupta, Manisha Sawant, Andrés E. Feijóo‑Lorenzo\nMultimedia Tools and Applications (2023)\n\nSpringer page: https://link.springer.com/article/10.1007/s11042-023-16553-w\nDOI: https://doi.org/10.1007/s11042-023-16553-w"
+    "text": "The VedicDateTime package is described in the following peer‑reviewed paper:\nVedicDateTime: An R package to implement Vedic calendar system\nNeeraj Dhanraj Bokde, Prajwal Kailasnath Patil, Saradindu Sengupta, Manisha Sawant, Andrés E. Feijóo‑Lorenzo\nMultimedia Tools and Applications (2023)\n\nSpringer page: link.springer.com/article/10.1007/s11042-023-16553-w\nDOI: doi.org/10.1007/s11042-023-16553-w"
   },
   {
     "objectID": "publications.html#how-to-cite",
@@ -144,7 +144,7 @@
     "href": "contributing.html#where-to-contribute",
     "title": "Contributing",
     "section": "Where to contribute",
-    "text": "Where to contribute\n\nRepository: https://github.com/neerajdhanraj/VedicDateTime\nIssues: https://github.com/neerajdhanraj/VedicDateTime/issues"
+    "text": "Where to contribute\n\nRepository: github.com/neerajdhanraj/VedicDateTime\nIssues: github.com/neerajdhanraj/VedicDateTime/issues"
   },
   {
     "objectID": "contributing.html#reporting-a-bug-checklist",
@@ -172,28 +172,28 @@
     "href": "changelog.html",
     "title": "Changelog",
     "section": "",
-    "text": "VedicDateTime releases are tracked on CRAN and GitHub.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub releases: https://github.com/neerajdhanraj/VedicDateTime/releases"
+    "text": "VedicDateTime releases are tracked on CRAN and GitHub.\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub releases: github.com/neerajdhanraj/VedicDateTime/releases"
   },
   {
     "objectID": "changelog.html#releases",
     "href": "changelog.html#releases",
     "title": "Changelog",
     "section": "",
-    "text": "VedicDateTime releases are tracked on CRAN and GitHub.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub releases: https://github.com/neerajdhanraj/VedicDateTime/releases"
+    "text": "VedicDateTime releases are tracked on CRAN and GitHub.\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub releases: github.com/neerajdhanraj/VedicDateTime/releases"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time (or Julian Day Numbers) and Vedic calendar entities.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper (open access): https://doi.org/10.1007/s11042-023-16553-w"
+    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time (or Julian Day Numbers) and Vedic calendar entities.\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub: github.com/neerajdhanraj/VedicDateTime\nPaper (open access): doi.org/10.1007/s11042-023-16553-w"
   },
   {
     "objectID": "about.html#vedicdatetime",
     "href": "about.html#vedicdatetime",
     "title": "About",
     "section": "",
-    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time (or Julian Day Numbers) and Vedic calendar entities.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper (open access): https://doi.org/10.1007/s11042-023-16553-w"
+    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time (or Julian Day Numbers) and Vedic calendar entities.\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub: github.com/neerajdhanraj/VedicDateTime\nPaper (open access): doi.org/10.1007/s11042-023-16553-w"
   },
   {
     "objectID": "about.html#authors-paper",
@@ -305,14 +305,14 @@
     "href": "contact.html#support",
     "title": "Contact",
     "section": "Support",
-    "text": "Support\nFor bug reports and feature requests:\n\nGitHub Issues: https://github.com/neerajdhanraj/VedicDateTime/issues"
+    "text": "Support\nFor bug reports and feature requests:\n\nGitHub Issues: github.com/neerajdhanraj/VedicDateTime/issues"
   },
   {
     "objectID": "contact.html#links",
     "href": "contact.html#links",
     "title": "Contact",
     "section": "Links",
-    "text": "Links\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper: https://doi.org/10.1007/s11042-023-16553-w"
+    "text": "Links\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub: github.com/neerajdhanraj/VedicDateTime\nPaper: doi.org/10.1007/s11042-023-16553-w"
   },
   {
     "objectID": "faq.html",
@@ -389,7 +389,7 @@
     "href": "index.html",
     "title": "VedicDateTime",
     "section": "",
-    "text": "An open-source R package to compute key entities from the Vedic (lunisolar) calendar and convert Gregorian dates (or Julian Day Numbers) into Panchanga components such as tithi, vaara, nakshatra, yoga, and karana.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper: https://doi.org/10.1007/s11042-023-16553-w\nInstall & first steps Browse functions"
+    "text": "An open-source R package to compute key entities from the Vedic (lunisolar) calendar and convert Gregorian dates (or Julian Day Numbers) into Panchanga components such as tithi, vaara, nakshatra, yoga, and karana.\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub: github.com/neerajdhanraj/VedicDateTime\nPaper: doi.org/10.1007/s11042-023-16553-w\nInstall & first steps Browse functions"
   },
   {
     "objectID": "index.html#why-vedicdatetime",

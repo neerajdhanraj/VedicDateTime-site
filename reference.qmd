@@ -181,8 +181,10 @@ The CRAN metadata indicates the package imports **swephR** (Swiss Ephemeris bind
 
 ---
 
-## Next step: full auto-generated function docs (optional)
+## Full API reference (pkgdown)
 
-If you want truly “complete” documentation on the website (argument tables, return values, examples straight from roxygen), the standard approach is to publish a **pkgdown** site.
+The complete, auto-generated API reference (built from the package documentation) is available here:
 
-If you want, I can set up pkgdown + GitHub Actions so your reference stays automatically up to date.
+- [API Reference (pkgdown)](pkgdown/)
+
+This includes function arguments, return values, and the full reference index.

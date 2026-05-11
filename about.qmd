@@ -6,9 +6,9 @@ title: "About"
 
 **VedicDateTime** is an R package for computing entities from the **Vedic (lunisolar) calendar system** and converting between **Gregorian** time (or **Julian Day Numbers**) and Vedic calendar entities.
 
-- CRAN: https://cran.r-project.org/package=VedicDateTime
-- GitHub: https://github.com/neerajdhanraj/VedicDateTime
-- Paper (open access): https://doi.org/10.1007/s11042-023-16553-w
+- CRAN: [cran.r-project.org/package=VedicDateTime](https://cran.r-project.org/package=VedicDateTime)
+- GitHub: [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
+- Paper (open access): [doi.org/10.1007/s11042-023-16553-w](https://doi.org/10.1007/s11042-023-16553-w)
 
 ## Authors (paper)
 

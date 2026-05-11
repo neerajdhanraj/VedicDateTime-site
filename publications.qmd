@@ -10,8 +10,8 @@ The VedicDateTime package is described in the following peer‑reviewed paper:
 Neeraj Dhanraj Bokde, Prajwal Kailasnath Patil, Saradindu Sengupta, Manisha Sawant, Andrés E. Feijóo‑Lorenzo  
 *Multimedia Tools and Applications* (2023)
 
-- Springer page: https://link.springer.com/article/10.1007/s11042-023-16553-w
-- DOI: https://doi.org/10.1007/s11042-023-16553-w
+- Springer page: [link.springer.com/article/10.1007/s11042-023-16553-w](https://link.springer.com/article/10.1007/s11042-023-16553-w)
+- DOI: [doi.org/10.1007/s11042-023-16553-w](https://doi.org/10.1007/s11042-023-16553-w)
 
 ## How to cite
 

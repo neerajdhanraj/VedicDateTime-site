@@ -16,8 +16,8 @@ You can contribute by:
 
 ## Where to contribute
 
-- Repository: https://github.com/neerajdhanraj/VedicDateTime
-- Issues: https://github.com/neerajdhanraj/VedicDateTime/issues
+- Repository: [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
+- Issues: [github.com/neerajdhanraj/VedicDateTime/issues](https://github.com/neerajdhanraj/VedicDateTime/issues)
 
 ## Reporting a bug (checklist)
 

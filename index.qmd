@@ -15,9 +15,9 @@ subtitle: "Vedic calendar (Panchanga) computations for R"
 An open-source R package to compute key entities from the <b>Vedic (lunisolar) calendar</b> and convert <b>Gregorian</b> dates (or <b>Julian Day Numbers</b>) into <b>Panchanga</b> components such as <b>tithi</b>, <b>vaara</b>, <b>nakshatra</b>, <b>yoga</b>, and <b>karana</b>.
 </p>
 
-**CRAN:** https://cran.r-project.org/package=VedicDateTime  
-**GitHub:** https://github.com/neerajdhanraj/VedicDateTime  
-**Paper:** https://doi.org/10.1007/s11042-023-16553-w
+**CRAN:** [cran.r-project.org/package=VedicDateTime](https://cran.r-project.org/package=VedicDateTime)  
+**GitHub:** [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)  
+**Paper:** [doi.org/10.1007/s11042-023-16553-w](https://doi.org/10.1007/s11042-023-16553-w)
 
 [Install & first steps](getting-started.qmd){.btn .btn-primary}
 [Browse functions](reference.qmd){.btn .btn-secondary}

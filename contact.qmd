@@ -11,10 +11,10 @@ title: "Contact"
 
 For bug reports and feature requests:
 
-- GitHub Issues: https://github.com/neerajdhanraj/VedicDateTime/issues
+- GitHub Issues: [github.com/neerajdhanraj/VedicDateTime/issues](https://github.com/neerajdhanraj/VedicDateTime/issues)
 
 ## Links
 
-- CRAN: https://cran.r-project.org/package=VedicDateTime
-- GitHub: https://github.com/neerajdhanraj/VedicDateTime
-- Paper: https://doi.org/10.1007/s11042-023-16553-w
+- CRAN: [cran.r-project.org/package=VedicDateTime](https://cran.r-project.org/package=VedicDateTime)
+- GitHub: [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
+- Paper: [doi.org/10.1007/s11042-023-16553-w](https://doi.org/10.1007/s11042-023-16553-w)

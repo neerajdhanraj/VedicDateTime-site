@@ -17,8 +17,10 @@ website:
         text: Home
       - href: getting-started.qmd
         text: Getting started
-      - href: reference.qmd
+      - href: pkgdown/
         text: Reference
+      - href: reference.qmd
+        text: Reference overview
       - href: articles.qmd
         text: Tutorials & case studies
       - href: publications.qmd
