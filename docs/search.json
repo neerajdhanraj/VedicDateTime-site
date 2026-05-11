@@ -130,21 +130,21 @@
     "href": "contributing.html",
     "title": "Contributing",
     "section": "",
-    "text": "Contributions are welcome—both from R users and from researchers interested in calendrical/time-series applications.\nYou can contribute by:\n\nReporting bugs (with reproducible examples)\nImproving documentation and examples\nAdding tests\nAdding new calendar entities / helper functions\nCreating vignettes that demonstrate real analyses"
+    "text": "Contributions are welcome from R users, developers, and researchers.\nYou can contribute by:\n\nReporting bugs (with reproducible examples)\nImproving documentation and examples\nAdding tests\nAdding new calendar entities / helper functions\nCreating vignettes that demonstrate real analyses"
   },
   {
     "objectID": "contributing.html#ways-to-contribute",
     "href": "contributing.html#ways-to-contribute",
     "title": "Contributing",
     "section": "",
-    "text": "Contributions are welcome—both from R users and from researchers interested in calendrical/time-series applications.\nYou can contribute by:\n\nReporting bugs (with reproducible examples)\nImproving documentation and examples\nAdding tests\nAdding new calendar entities / helper functions\nCreating vignettes that demonstrate real analyses"
+    "text": "Contributions are welcome from R users, developers, and researchers.\nYou can contribute by:\n\nReporting bugs (with reproducible examples)\nImproving documentation and examples\nAdding tests\nAdding new calendar entities / helper functions\nCreating vignettes that demonstrate real analyses"
   },
   {
     "objectID": "contributing.html#where-to-contribute",
     "href": "contributing.html#where-to-contribute",
     "title": "Contributing",
     "section": "Where to contribute",
-    "text": "Where to contribute\n\nGitHub repository: https://github.com/neerajdhanraj/VedicDateTime\nIssues: https://github.com/neerajdhanraj/VedicDateTime/issues"
+    "text": "Where to contribute\n\nRepository: https://github.com/neerajdhanraj/VedicDateTime\nIssues: https://github.com/neerajdhanraj/VedicDateTime/issues"
   },
   {
     "objectID": "contributing.html#reporting-a-bug-checklist",
@@ -161,11 +161,11 @@
     "text": "Development principles\n\nKeep computations reproducible (explicit timezone/location)\nPrefer clear return formats and documented units\nAdd tests for edge cases (skipped/leap entities, midnight-crossing end times)"
   },
   {
-    "objectID": "contributing.html#acknowledgements-funding",
-    "href": "contributing.html#acknowledgements-funding",
+    "objectID": "contributing.html#funding-acknowledgement",
+    "href": "contributing.html#funding-acknowledgement",
     "title": "Contributing",
-    "section": "Acknowledgements / Funding",
-    "text": "Acknowledgements / Funding\nEarly development of this package was funded through Google Summer of Code (GSoC) in multiple years.\n(If you would like, we can add a dedicated “Funding” section listing the exact years/organizations once confirmed.)"
+    "section": "Funding acknowledgement",
+    "text": "Funding acknowledgement\nEarly development of this package was funded through Google Summer of Code (GSoC) in multiple years."
   },
   {
     "objectID": "changelog.html",
@@ -182,32 +182,39 @@
     "text": "VedicDateTime releases are tracked on CRAN and GitHub.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub releases: https://github.com/neerajdhanraj/VedicDateTime/releases"
   },
   {
-    "objectID": "changelog.html#recommended-workflow",
-    "href": "changelog.html#recommended-workflow",
-    "title": "Changelog",
-    "section": "Recommended workflow",
-    "text": "Recommended workflow\nFor a clean, complete website:\n\nMaintain a NEWS.md file in the package repository\nCreate GitHub Releases for tagged versions\nKeep this page short and point users to the authoritative history\n\nIf you want, we can automatically pull NEWS.md into this website during the build."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time and Vedic calendar entities.\nThe package is described in the open-access paper:\n\nhttps://doi.org/10.1007/s11042-023-16553-w\n\nProject links:\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nWebsite: https://vedicdatetime.org"
+    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time (or Julian Day Numbers) and Vedic calendar entities.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper (open access): https://doi.org/10.1007/s11042-023-16553-w"
   },
   {
-    "objectID": "about.html#what-is-vedicdatetime",
-    "href": "about.html#what-is-vedicdatetime",
+    "objectID": "about.html#vedicdatetime",
+    "href": "about.html#vedicdatetime",
     "title": "About",
     "section": "",
-    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time and Vedic calendar entities.\nThe package is described in the open-access paper:\n\nhttps://doi.org/10.1007/s11042-023-16553-w\n\nProject links:\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nWebsite: https://vedicdatetime.org"
+    "text": "VedicDateTime is an R package for computing entities from the Vedic (lunisolar) calendar system and converting between Gregorian time (or Julian Day Numbers) and Vedic calendar entities.\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper (open access): https://doi.org/10.1007/s11042-023-16553-w"
   },
   {
-    "objectID": "about.html#whats-inside-high-level",
-    "href": "about.html#whats-inside-high-level",
+    "objectID": "about.html#authors-paper",
+    "href": "about.html#authors-paper",
     "title": "About",
-    "section": "What’s inside (high level)",
-    "text": "What’s inside (high level)\nFrom the paper, VedicDateTime implements the five key Panchanga entities:\n\ntithi\nvaara\nnakshatra\nyoga\nkarana\n\n…and also provides a broader set of helper functions for related entities such as rashi/lagna/masa/ritu/samvatsara and sunrise/sunset/moonrise/moonset."
+    "section": "Authors (paper)",
+    "text": "Authors (paper)\nThe package is described in the peer‑reviewed paper authored by:\n\nNeeraj Dhanraj Bokde\nPrajwal Kailasnath Patil\nSaradindu Sengupta\nManisha Sawant\nAndrés E. Feijóo‑Lorenzo"
+  },
+  {
+    "objectID": "about.html#maintainer",
+    "href": "about.html#maintainer",
+    "title": "About",
+    "section": "Maintainer",
+    "text": "Maintainer\n\nNeeraj Dhanraj Bokde (Maintainer)\nEmail: neerajdhanraj@gmail.com"
+  },
+  {
+    "objectID": "about.html#scope",
+    "href": "about.html#scope",
+    "title": "About",
+    "section": "Scope",
+    "text": "Scope\nVedicDateTime implements the five key Panchanga entities:\n\ntithi\nvaara\nnakshatra\nyoga\nkarana\n\nIt also provides supporting functions for related entities and astronomical calculations, including:\n\nsunrise/sunset, moonrise/moonset\nsolar/lunar longitudes\nrashi, lagna, masa, ritu, samvatsara\nGregorian ↔︎ Julian day conversions"
   },
   {
     "objectID": "about.html#implementation-notes-paper-summary",
@@ -221,7 +228,7 @@
     "href": "about.html#license",
     "title": "About",
     "section": "License",
-    "text": "License\nVedicDateTime is distributed under GPL-3 (as stated in the paper and in CRAN metadata)."
+    "text": "License\nVedicDateTime is distributed under GPL-3."
   },
   {
     "objectID": "about.html#funding-acknowledgement",
@@ -231,88 +238,81 @@
     "text": "Funding acknowledgement\nEarly development of this package was funded through Google Summer of Code (GSoC) in multiple years."
   },
   {
-    "objectID": "about.html#authors-paper",
-    "href": "about.html#authors-paper",
-    "title": "About",
-    "section": "Authors (paper)",
-    "text": "Authors (paper)\n\nNeeraj Dhanraj Bokde\nPrajwal Kailasnath Patil\nSaradindu Sengupta\nManisha Sawant\nAndrés E. Feijóo‑Lorenzo"
-  },
-  {
     "objectID": "about.html#limitations-future-scope-as-stated-in-the-paper",
     "href": "about.html#limitations-future-scope-as-stated-in-the-paper",
     "title": "About",
     "section": "Limitations & future scope (as stated in the paper)",
-    "text": "Limitations & future scope (as stated in the paper)\nThe paper notes future improvements such as:\n\nadding visualization capabilities for calendar entities\nadding native R date-time object support (e.g., S4 classes) for Vedic date-time handling\n\nIf you are using VedicDateTime for research, we recommend recording:\n\npackage version\nlocation & timezone assumptions\ninput time conventions"
+    "text": "Limitations & future scope (as stated in the paper)\nThe paper notes future improvements such as:\n\nadding visualization capabilities for calendar entities\nadding native R date-time object support (e.g., S4 classes) for Vedic date-time handling"
   },
   {
     "objectID": "articles.html",
     "href": "articles.html",
     "title": "Tutorials & case studies",
     "section": "",
-    "text": "This section collects longer-form explanations, examples, and the case studies presented in the VedicDateTime paper.\nIf you are new, start with:"
+    "text": "This section collects longer-form explanations, examples, and the case studies presented in the VedicDateTime paper."
   },
   {
     "objectID": "articles.html#tutorial-1-compute-panchanga-for-a-place",
     "href": "articles.html#tutorial-1-compute-panchanga-for-a-place",
     "title": "Tutorials & case studies",
     "section": "Tutorial 1 — Compute Panchanga for a place",
-    "text": "Tutorial 1 — Compute Panchanga for a place\nThe paper demonstrates a common pattern:\n\nConvert a Gregorian date to a Julian day (gregorian_to_jd) (or start with a JD)\nProvide a location as place &lt;- c(latitude, longitude, timezone_offset)\nCompute Panchanga entities (tithi/vaara/nakshatra/yoga/karana)\n\nExample (paper-inspired, shown earlier):\nplace &lt;- c(15.34, 75.13, +5.5)\n\njd &lt;- 2459778\n\ntithi(jd, place)\nvaara(jd)\nnakshatra(jd, place)\nyoga(jd, place)\nkarana(jd, place)"
+    "text": "Tutorial 1 — Compute Panchanga for a place\nA common workflow is:\n\nConvert a Gregorian date to a Julian day (gregorian_to_jd) or start from a JD.\nProvide a location as place &lt;- c(latitude, longitude, timezone_offset).\nCompute Panchanga entities: tithi, vaara, nakshatra, yoga, karana.\n\nExample:\nplace &lt;- c(15.34, 75.13, +5.5)\n\njd &lt;- 2459778\n\ntithi(jd, place)\nvaara(jd)\nnakshatra(jd, place)\nyoga(jd, place)\nkarana(jd, place)"
   },
   {
     "objectID": "articles.html#tutorial-2-turn-vedic-entities-into-time-series-features",
     "href": "articles.html#tutorial-2-turn-vedic-entities-into-time-series-features",
     "title": "Tutorials & case studies",
     "section": "Tutorial 2 — Turn Vedic entities into time-series features",
-    "text": "Tutorial 2 — Turn Vedic entities into time-series features\nA common approach in time-series analysis is to convert dates into calendar features, e.g.:\n\nweekday, month, quarter (Gregorian)\nfestival windows (moving holidays)\n\nVedicDateTime enables alternative features such as:\n\ntithi index\nnakshatra index\nyoga index\nrashi / masa\n\nIn practice, you might:\n\nCompute the entity index for each observation date\nConvert the index to a factor / one-hot encoding\nUse these as regressors in a forecasting / regression model\n\n# Pseudocode sketch (adapt to your workflow)\n# df$tithi &lt;- tithi(df$jd, place)[1]\n# df$nakshatra &lt;- nakshatra(df$jd, place)[1]\n# model &lt;- lm(y ~ factor(tithi) + factor(nakshatra), data = df)"
+    "text": "Tutorial 2 — Turn Vedic entities into time-series features\nVedicDateTime enables calendar features such as:\n\ntithi index\nnakshatra index\nyoga index\nrashi / masa\n\nA typical workflow is:\n\nCompute one or more entity indices for each observation date.\nEncode indices as factors (or one-hot variables).\nUse these as regressors in a forecasting / regression model.\n\n# Pseudocode sketch (adapt to your workflow)\n# df$tithi &lt;- tithi(df$jd, place)[1]\n# df$nakshatra &lt;- nakshatra(df$jd, place)[1]\n# model &lt;- lm(y ~ factor(tithi) + factor(nakshatra), data = df)"
   },
   {
     "objectID": "articles.html#case-study-1-paper-calendar-seasonality-and-economic-output",
     "href": "articles.html#case-study-1-paper-calendar-seasonality-and-economic-output",
     "title": "Tutorials & case studies",
     "section": "Case study 1 (paper) — Calendar seasonality and economic output",
-    "text": "Case study 1 (paper) — Calendar seasonality and economic output\nThe paper highlights that calendars can have strong effects on economic and social behavior, and argues that modeling purely on the Gregorian calendar can be limiting in settings where multiple festivals and regions interact.\nIn the case study, the authors discuss India’s Index of Industrial Production (IIP) and the idea of calendar seasonality.\nKey motivations mentioned:\n\nIn India, multiple regions and multiple religious festivals exist.\nA single Gregorian calendar representation may be insufficient to model all seasonal components.\nDuring Diwali, consumer consumption may be higher while industrial output is often lower.\n\nVedicDateTime is used to convert the time axis and extract additional insights."
+    "text": "Case study 1 (paper) — Calendar seasonality and economic output\nThe paper highlights that calendars can have strong effects on economic and social behavior, and discusses India’s Index of Industrial Production (IIP) as an example.\nKey motivations described:\n\nIndia has multiple regions and festivals from multiple religions.\nA single Gregorian calendar representation may be insufficient to model various seasonal components.\nDuring Diwali, consumer consumption can be higher while industrial output is generally lower.\n\nVedicDateTime is used to convert the time axis and analyze calendar seasonality effects."
   },
   {
     "objectID": "articles.html#case-study-2-paper-diwali-regressors-moving-festival-effects",
     "href": "articles.html#case-study-2-paper-diwali-regressors-moving-festival-effects",
     "title": "Tutorials & case studies",
     "section": "Case study 2 (paper) — Diwali regressors (moving festival effects)",
-    "text": "Case study 2 (paper) — Diwali regressors (moving festival effects)\nThe second case study discusses creating regressors around the Diwali period and comparing industrial production patterns pre and post Diwali.\nWhy this matters:\n\nMoving holidays create shifting impacts in Gregorian time.\nEncoding festival timing in a lunisolar calendar can provide more stable features."
+    "text": "Case study 2 (paper) — Diwali regressors (moving festival effects)\nThe paper also discusses creating regressors around the Diwali period and comparing industrial production patterns pre and post Diwali.\nMotivation:\n\nMoving holidays create shifting impacts in Gregorian time.\nEncoding festival timing in a lunisolar calendar can provide stable features for modeling."
   },
   {
-    "objectID": "articles.html#suggested-additional-examples-we-can-add-next",
-    "href": "articles.html#suggested-additional-examples-we-can-add-next",
+    "objectID": "articles.html#read-the-paper",
+    "href": "articles.html#read-the-paper",
     "title": "Tutorials & case studies",
-    "section": "Suggested additional examples (we can add next)",
-    "text": "Suggested additional examples (we can add next)\nIf you share 1–2 real datasets you want to feature (or synthetic data is OK), we can add full, reproducible tutorials such as:\n\nBatch conversion for a whole vector/data frame of dates\nPlot a time series grouped by tithi/nakshatra to visually inspect seasonality\nBuild Diwali regressors and compare model fit"
+    "section": "Read the paper",
+    "text": "Read the paper\n\nDOI: https://doi.org/10.1007/s11042-023-16553-w\nEmbedded PDF: see the Publication page"
   },
   {
     "objectID": "contact.html",
     "href": "contact.html",
     "title": "Contact",
     "section": "",
-    "text": "Email: neerajdhanraj@gmail.com"
+    "text": "Neeraj Dhanraj Bokde (Maintainer)\nEmail: neerajdhanraj@gmail.com"
   },
   {
     "objectID": "contact.html#maintainer",
     "href": "contact.html#maintainer",
     "title": "Contact",
     "section": "",
-    "text": "Email: neerajdhanraj@gmail.com"
+    "text": "Neeraj Dhanraj Bokde (Maintainer)\nEmail: neerajdhanraj@gmail.com"
   },
   {
-    "objectID": "contact.html#support-questions",
-    "href": "contact.html#support-questions",
+    "objectID": "contact.html#support",
+    "href": "contact.html#support",
     "title": "Contact",
-    "section": "Support / Questions",
-    "text": "Support / Questions\nFor questions, bug reports, and feature requests, the preferred channel is GitHub Issues:\n\nhttps://github.com/neerajdhanraj/VedicDateTime/issues"
+    "section": "Support",
+    "text": "Support\nFor bug reports and feature requests:\n\nGitHub Issues: https://github.com/neerajdhanraj/VedicDateTime/issues"
   },
   {
     "objectID": "contact.html#links",
     "href": "contact.html#links",
     "title": "Contact",
     "section": "Links",
-    "text": "Links\n\nWebsite: https://vedicdatetime.org\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper: https://doi.org/10.1007/s11042-023-16553-w"
+    "text": "Links\n\nCRAN: https://cran.r-project.org/package=VedicDateTime\nGitHub: https://github.com/neerajdhanraj/VedicDateTime\nPaper: https://doi.org/10.1007/s11042-023-16553-w"
   },
   {
     "objectID": "faq.html",
@@ -438,14 +438,14 @@
     "href": "README-site.html",
     "title": "VedicDateTime website (GitHub Pages)",
     "section": "",
-    "text": "This folder contains a Quarto website intended to be published with GitHub Pages.\n\n\n\nInstall Quarto: https://quarto.org/\nIn RStudio (or terminal), from this folder:\n\nquarto preview\n\n\n\nquarto render\nThis renders the site to docs/ (configured in _quarto.yml).\n\n\n\n\nCommit the website source files (this site/ folder) and the generated docs/ folder to your default branch (e.g., main).\nIn GitHub repo → Settings → Pages:\n\nSource: Deploy from a branch\nBranch: main\nFolder: /docs\n\nSave.\n\nYour project site URL will be:\n\nhttps://&lt;OWNER&gt;.github.io/&lt;REPO&gt;/\n\nFor example:\n\nhttps://neerajdhanraj.github.io/VedicDateTime/\n\n\n\n\nGitHub Pages redirects to a custom domain if either of the following is true:\n\nRepo Settings → Pages → Custom domain is set.\nA CNAME file exists in the published site root (for project sites this is typically docs/CNAME on main, or CNAME on the gh-pages branch).\n\nSo, if you want to test on github.io (no redirect):\n\nEnsure Custom domain is blank in Settings → Pages.\nEnsure there is NO docs/CNAME committed.\n\n(Deleting site/CNAME alone is not enough if docs/CNAME was previously committed.)\n\n\n\nWhen DNS is ready and you want redirect to your domain:\n\nIn GitHub repo → Settings → Pages → Custom domain:\n\nenter: vedicdatetime.org\n\nCreate docs/CNAME containing exactly:\n\nvedicdatetime.org\n\nAdd DNS records at your domain provider:\n\n\nApex domain (@) A records → GitHub Pages IPs:\n\n185.199.108.153\n185.199.109.153\n185.199.110.153\n185.199.111.153\n\n\n\nAfter DNS propagates, enable Enforce HTTPS.\n\n\n\n\n\nRun quarto render\nCopy/update the generated docs/ folder in your repository root\nCommit + push\nGitHub → Settings → Pages → Branch: main and folder /docs\nHard refresh your browser (Ctrl+F5) if you still see an old version\n\n\n\n\n\nThis site is configured to not execute code blocks during rendering (execute.eval: false), so the website builds even if VedicDateTime is not installed on the build machine.\nConsider adding pkgdown later for fully auto-generated R function reference."
+    "text": "This folder contains a Quarto website intended to be published with GitHub Pages.\n\n\n\nInstall Quarto: https://quarto.org/\nFrom this folder:\n\nquarto preview\n\n\n\nquarto render\nThis renders the site to docs/ (configured in _quarto.yml).\n\n\n\n\nCommit the website source files (this site/ folder) and the generated docs/ folder to your default branch (e.g., main).\nIn GitHub repo → Settings → Pages:\n\nSource: Deploy from a branch\nBranch: main\nFolder: /docs\n\nSave.\n\nThe project site URL is:\n\nhttps://&lt;OWNER&gt;.github.io/&lt;REPO&gt;/\n\nExample:\n\nhttps://neerajdhanraj.github.io/VedicDateTime/\n\n\n\n\nGitHub Pages redirects to a custom domain if:\n\nSettings → Pages → Custom domain is set, or\na CNAME file exists in the published site root (e.g., docs/CNAME)\n\nTo enable a custom domain later:\n\nSet the custom domain in Settings → Pages.\nAdd a docs/CNAME file with your domain name.\nConfigure DNS at your domain provider."
   },
   {
     "objectID": "README-site.html#local-preview",
     "href": "README-site.html#local-preview",
     "title": "VedicDateTime website (GitHub Pages)",
     "section": "",
-    "text": "Install Quarto: https://quarto.org/\nIn RStudio (or terminal), from this folder:\n\nquarto preview"
+    "text": "Install Quarto: https://quarto.org/\nFrom this folder:\n\nquarto preview"
   },
   {
     "objectID": "README-site.html#build",
@@ -459,34 +459,13 @@
     "href": "README-site.html#publish-on-github-pages-project-site",
     "title": "VedicDateTime website (GitHub Pages)",
     "section": "",
-    "text": "Commit the website source files (this site/ folder) and the generated docs/ folder to your default branch (e.g., main).\nIn GitHub repo → Settings → Pages:\n\nSource: Deploy from a branch\nBranch: main\nFolder: /docs\n\nSave.\n\nYour project site URL will be:\n\nhttps://&lt;OWNER&gt;.github.io/&lt;REPO&gt;/\n\nFor example:\n\nhttps://neerajdhanraj.github.io/VedicDateTime/"
+    "text": "Commit the website source files (this site/ folder) and the generated docs/ folder to your default branch (e.g., main).\nIn GitHub repo → Settings → Pages:\n\nSource: Deploy from a branch\nBranch: main\nFolder: /docs\n\nSave.\n\nThe project site URL is:\n\nhttps://&lt;OWNER&gt;.github.io/&lt;REPO&gt;/\n\nExample:\n\nhttps://neerajdhanraj.github.io/VedicDateTime/"
   },
   {
-    "objectID": "README-site.html#important-why-your-github-url-may-redirect-to-a-custom-domain",
-    "href": "README-site.html#important-why-your-github-url-may-redirect-to-a-custom-domain",
+    "objectID": "README-site.html#custom-domain-optional",
+    "href": "README-site.html#custom-domain-optional",
     "title": "VedicDateTime website (GitHub Pages)",
     "section": "",
-    "text": "GitHub Pages redirects to a custom domain if either of the following is true:\n\nRepo Settings → Pages → Custom domain is set.\nA CNAME file exists in the published site root (for project sites this is typically docs/CNAME on main, or CNAME on the gh-pages branch).\n\nSo, if you want to test on github.io (no redirect):\n\nEnsure Custom domain is blank in Settings → Pages.\nEnsure there is NO docs/CNAME committed.\n\n(Deleting site/CNAME alone is not enough if docs/CNAME was previously committed.)"
-  },
-  {
-    "objectID": "README-site.html#future-enable-the-custom-domain-vedicdatetime.org-safely",
-    "href": "README-site.html#future-enable-the-custom-domain-vedicdatetime.org-safely",
-    "title": "VedicDateTime website (GitHub Pages)",
-    "section": "",
-    "text": "When DNS is ready and you want redirect to your domain:\n\nIn GitHub repo → Settings → Pages → Custom domain:\n\nenter: vedicdatetime.org\n\nCreate docs/CNAME containing exactly:\n\nvedicdatetime.org\n\nAdd DNS records at your domain provider:\n\n\nApex domain (@) A records → GitHub Pages IPs:\n\n185.199.108.153\n185.199.109.153\n185.199.110.153\n185.199.111.153\n\n\n\nAfter DNS propagates, enable Enforce HTTPS."
-  },
-  {
-    "objectID": "README-site.html#deployment-checklist",
-    "href": "README-site.html#deployment-checklist",
-    "title": "VedicDateTime website (GitHub Pages)",
-    "section": "",
-    "text": "Run quarto render\nCopy/update the generated docs/ folder in your repository root\nCommit + push\nGitHub → Settings → Pages → Branch: main and folder /docs\nHard refresh your browser (Ctrl+F5) if you still see an old version"
-  },
-  {
-    "objectID": "README-site.html#notes",
-    "href": "README-site.html#notes",
-    "title": "VedicDateTime website (GitHub Pages)",
-    "section": "",
-    "text": "This site is configured to not execute code blocks during rendering (execute.eval: false), so the website builds even if VedicDateTime is not installed on the build machine.\nConsider adding pkgdown later for fully auto-generated R function reference."
+    "text": "GitHub Pages redirects to a custom domain if:\n\nSettings → Pages → Custom domain is set, or\na CNAME file exists in the published site root (e.g., docs/CNAME)\n\nTo enable a custom domain later:\n\nSet the custom domain in Settings → Pages.\nAdd a docs/CNAME file with your domain name.\nConfigure DNS at your domain provider."
   }
 ]

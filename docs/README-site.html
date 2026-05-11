@@ -196,10 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#local-preview" id="toc-local-preview" class="nav-link" data-scroll-target="#local-preview">Local preview</a></li>
   <li><a href="#build" id="toc-build" class="nav-link" data-scroll-target="#build">Build</a></li>
   <li><a href="#publish-on-github-pages-project-site" id="toc-publish-on-github-pages-project-site" class="nav-link" data-scroll-target="#publish-on-github-pages-project-site">Publish on GitHub Pages (project site)</a></li>
-  <li><a href="#important-why-your-github-url-may-redirect-to-a-custom-domain" id="toc-important-why-your-github-url-may-redirect-to-a-custom-domain" class="nav-link" data-scroll-target="#important-why-your-github-url-may-redirect-to-a-custom-domain">IMPORTANT: Why your GitHub URL may redirect to a custom domain</a></li>
-  <li><a href="#future-enable-the-custom-domain-vedicdatetime.org-safely" id="toc-future-enable-the-custom-domain-vedicdatetime.org-safely" class="nav-link" data-scroll-target="#future-enable-the-custom-domain-vedicdatetime.org-safely">Future: enable the custom domain (vedicdatetime.org) safely</a></li>
-  <li><a href="#deployment-checklist" id="toc-deployment-checklist" class="nav-link" data-scroll-target="#deployment-checklist">Deployment checklist</a></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#custom-domain-optional" id="toc-custom-domain-optional" class="nav-link" data-scroll-target="#custom-domain-optional">Custom domain (optional)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -217,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="local-preview">Local preview</h2>
 <ol type="1">
 <li>Install Quarto: https://quarto.org/</li>
-<li>In RStudio (or terminal), from this folder:</li>
+<li>From this folder:</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
@@ -238,72 +235,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li>Save.</li>
 </ol>
-<p>Your project site URL will be:</p>
+<p>The project site URL is:</p>
 <ul>
 <li><code>https://&lt;OWNER&gt;.github.io/&lt;REPO&gt;/</code></li>
 </ul>
-<p>For example:</p>
+<p>Example:</p>
 <ul>
 <li><code>https://neerajdhanraj.github.io/VedicDateTime/</code></li>
 </ul>
 </section>
-<section id="important-why-your-github-url-may-redirect-to-a-custom-domain" class="level2">
-<h2 class="anchored" data-anchor-id="important-why-your-github-url-may-redirect-to-a-custom-domain">IMPORTANT: Why your GitHub URL may redirect to a custom domain</h2>
-<p>GitHub Pages redirects to a custom domain if <strong>either</strong> of the following is true:</p>
+<section id="custom-domain-optional" class="level2">
+<h2 class="anchored" data-anchor-id="custom-domain-optional">Custom domain (optional)</h2>
+<p>GitHub Pages redirects to a custom domain if:</p>
+<ul>
+<li><strong>Settings → Pages → Custom domain</strong> is set, or</li>
+<li>a <code>CNAME</code> file exists in the published site root (e.g., <code>docs/CNAME</code>)</li>
+</ul>
+<p>To enable a custom domain later:</p>
 <ol type="1">
-<li><strong>Repo Settings → Pages → Custom domain</strong> is set.</li>
-<li>A <code>CNAME</code> file exists in the <strong>published</strong> site root (for project sites this is typically <code>docs/CNAME</code> on <code>main</code>, or <code>CNAME</code> on the <code>gh-pages</code> branch).</li>
+<li>Set the custom domain in <strong>Settings → Pages</strong>.</li>
+<li>Add a <code>docs/CNAME</code> file with your domain name.</li>
+<li>Configure DNS at your domain provider.</li>
 </ol>
-<p>So, if you want to test on <code>github.io</code> (no redirect):</p>
-<ul>
-<li>Ensure <strong>Custom domain is blank</strong> in Settings → Pages.</li>
-<li>Ensure there is <strong>NO</strong> <code>docs/CNAME</code> committed.</li>
-</ul>
-<p>(Deleting <code>site/CNAME</code> alone is not enough if <code>docs/CNAME</code> was previously committed.)</p>
-</section>
-<section id="future-enable-the-custom-domain-vedicdatetime.org-safely" class="level2">
-<h2 class="anchored" data-anchor-id="future-enable-the-custom-domain-vedicdatetime.org-safely">Future: enable the custom domain (vedicdatetime.org) safely</h2>
-<p>When DNS is ready and you <em>want</em> redirect to your domain:</p>
-<ol type="1">
-<li>In GitHub repo → <strong>Settings</strong> → <strong>Pages</strong> → <strong>Custom domain</strong>:
-<ul>
-<li>enter: <code>vedicdatetime.org</code></li>
-</ul></li>
-<li>Create <code>docs/CNAME</code> containing exactly:</li>
-</ol>
-<pre class="text"><code>vedicdatetime.org</code></pre>
-<ol start="3" type="1">
-<li>Add DNS records at your domain provider:</li>
-</ol>
-<ul>
-<li>Apex domain (<code>@</code>) A records → GitHub Pages IPs:
-<ul>
-<li>185.199.108.153</li>
-<li>185.199.109.153</li>
-<li>185.199.110.153</li>
-<li>185.199.111.153</li>
-</ul></li>
-</ul>
-<ol start="4" type="1">
-<li>After DNS propagates, enable <strong>Enforce HTTPS</strong>.</li>
-</ol>
-</section>
-<section id="deployment-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="deployment-checklist">Deployment checklist</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Run <code>quarto render</code></label></li>
-<li><label><input type="checkbox">Copy/update the generated <code>docs/</code> folder in your repository root</label></li>
-<li><label><input type="checkbox">Commit + push</label></li>
-<li><label><input type="checkbox">GitHub → Settings → Pages → Branch: <code>main</code> and folder <code>/docs</code></label></li>
-<li><label><input type="checkbox">Hard refresh your browser (<code>Ctrl+F5</code>) if you still see an old version</label></li>
-</ul>
-</section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<ul>
-<li>This site is configured to <strong>not execute</strong> code blocks during rendering (<code>execute.eval: false</code>), so the website builds even if VedicDateTime is not installed on the build machine.</li>
-<li>Consider adding <strong>pkgdown</strong> later for fully auto-generated R function reference.</li>
-</ul>
 
 
 </section>

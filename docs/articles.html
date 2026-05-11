@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#tutorial-2-turn-vedic-entities-into-time-series-features" id="toc-tutorial-2-turn-vedic-entities-into-time-series-features" class="nav-link" data-scroll-target="#tutorial-2-turn-vedic-entities-into-time-series-features">Tutorial 2 — Turn Vedic entities into time-series features</a></li>
   <li><a href="#case-study-1-paper-calendar-seasonality-and-economic-output" id="toc-case-study-1-paper-calendar-seasonality-and-economic-output" class="nav-link" data-scroll-target="#case-study-1-paper-calendar-seasonality-and-economic-output">Case study 1 (paper) — Calendar seasonality and economic output</a></li>
   <li><a href="#case-study-2-paper-diwali-regressors-moving-festival-effects" id="toc-case-study-2-paper-diwali-regressors-moving-festival-effects" class="nav-link" data-scroll-target="#case-study-2-paper-diwali-regressors-moving-festival-effects">Case study 2 (paper) — Diwali regressors (moving festival effects)</a></li>
-  <li><a href="#suggested-additional-examples-we-can-add-next" id="toc-suggested-additional-examples-we-can-add-next" class="nav-link" data-scroll-target="#suggested-additional-examples-we-can-add-next">Suggested additional examples (we can add next)</a></li>
+  <li><a href="#read-the-paper" id="toc-read-the-paper" class="nav-link" data-scroll-target="#read-the-paper">Read the paper</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -222,22 +222,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This section collects longer-form explanations, examples, and the case studies presented in the VedicDateTime paper.</p>
-<p>If you are new, start with:</p>
-<ul>
-<li><a href="./getting-started.html">Getting started</a></li>
-<li><a href="./reference.html">Reference</a></li>
-<li><a href="./publications.html">Publication</a></li>
-</ul>
 <hr>
 <section id="tutorial-1-compute-panchanga-for-a-place" class="level2">
 <h2 class="anchored" data-anchor-id="tutorial-1-compute-panchanga-for-a-place">Tutorial 1 — Compute Panchanga for a place</h2>
-<p>The paper demonstrates a common pattern:</p>
+<p>A common workflow is:</p>
 <ol type="1">
-<li>Convert a Gregorian date to a Julian day (<code>gregorian_to_jd</code>) (or start with a JD)</li>
-<li>Provide a location as <code>place &lt;- c(latitude, longitude, timezone_offset)</code></li>
-<li>Compute Panchanga entities (tithi/vaara/nakshatra/yoga/karana)</li>
+<li>Convert a Gregorian date to a Julian day (<code>gregorian_to_jd</code>) or start from a JD.</li>
+<li>Provide a location as <code>place &lt;- c(latitude, longitude, timezone_offset)</code>.</li>
+<li>Compute Panchanga entities: tithi, vaara, nakshatra, yoga, karana.</li>
 </ol>
-<p>Example (paper-inspired, shown earlier):</p>
+<p>Example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="dv">2459778</span></span>
@@ -251,23 +245,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="tutorial-2-turn-vedic-entities-into-time-series-features" class="level2">
 <h2 class="anchored" data-anchor-id="tutorial-2-turn-vedic-entities-into-time-series-features">Tutorial 2 — Turn Vedic entities into time-series features</h2>
-<p>A common approach in time-series analysis is to convert dates into calendar features, e.g.:</p>
-<ul>
-<li>weekday, month, quarter (Gregorian)</li>
-<li>festival windows (moving holidays)</li>
-</ul>
-<p>VedicDateTime enables alternative features such as:</p>
+<p>VedicDateTime enables calendar features such as:</p>
 <ul>
 <li>tithi index</li>
 <li>nakshatra index</li>
 <li>yoga index</li>
 <li>rashi / masa</li>
 </ul>
-<p>In practice, you might:</p>
+<p>A typical workflow is:</p>
 <ol type="1">
-<li>Compute the entity index for each observation date</li>
-<li>Convert the index to a factor / one-hot encoding</li>
-<li>Use these as regressors in a forecasting / regression model</li>
+<li>Compute one or more entity indices for each observation date.</li>
+<li>Encode indices as factors (or one-hot variables).</li>
+<li>Use these as regressors in a forecasting / regression model.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudocode sketch (adapt to your workflow)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df$tithi &lt;- tithi(df$jd, place)[1]</span></span>
@@ -277,34 +266,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="case-study-1-paper-calendar-seasonality-and-economic-output" class="level2">
 <h2 class="anchored" data-anchor-id="case-study-1-paper-calendar-seasonality-and-economic-output">Case study 1 (paper) — Calendar seasonality and economic output</h2>
-<p>The paper highlights that calendars can have strong effects on economic and social behavior, and argues that modeling purely on the Gregorian calendar can be limiting in settings where multiple festivals and regions interact.</p>
-<p>In the case study, the authors discuss India’s <strong>Index of Industrial Production (IIP)</strong> and the idea of calendar seasonality.</p>
-<p>Key motivations mentioned:</p>
+<p>The paper highlights that calendars can have strong effects on economic and social behavior, and discusses India’s <strong>Index of Industrial Production (IIP)</strong> as an example.</p>
+<p>Key motivations described:</p>
 <ul>
-<li>In India, multiple regions and multiple religious festivals exist.</li>
-<li>A single Gregorian calendar representation may be insufficient to model all seasonal components.</li>
-<li>During Diwali, consumer consumption may be higher while industrial output is often lower.</li>
+<li>India has multiple regions and festivals from multiple religions.</li>
+<li>A single Gregorian calendar representation may be insufficient to model various seasonal components.</li>
+<li>During Diwali, consumer consumption can be higher while industrial output is generally lower.</li>
 </ul>
-<p>VedicDateTime is used to convert the time axis and extract additional insights.</p>
+<p>VedicDateTime is used to convert the time axis and analyze calendar seasonality effects.</p>
 <hr>
 </section>
 <section id="case-study-2-paper-diwali-regressors-moving-festival-effects" class="level2">
 <h2 class="anchored" data-anchor-id="case-study-2-paper-diwali-regressors-moving-festival-effects">Case study 2 (paper) — Diwali regressors (moving festival effects)</h2>
-<p>The second case study discusses creating regressors around the Diwali period and comparing industrial production patterns pre and post Diwali.</p>
-<p>Why this matters:</p>
+<p>The paper also discusses creating regressors around the Diwali period and comparing industrial production patterns pre and post Diwali.</p>
+<p>Motivation:</p>
 <ul>
 <li>Moving holidays create shifting impacts in Gregorian time.</li>
-<li>Encoding festival timing in a lunisolar calendar can provide more stable features.</li>
+<li>Encoding festival timing in a lunisolar calendar can provide stable features for modeling.</li>
 </ul>
 <hr>
 </section>
-<section id="suggested-additional-examples-we-can-add-next" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-additional-examples-we-can-add-next">Suggested additional examples (we can add next)</h2>
-<p>If you share 1–2 real datasets you want to feature (or synthetic data is OK), we can add full, reproducible tutorials such as:</p>
+<section id="read-the-paper" class="level2">
+<h2 class="anchored" data-anchor-id="read-the-paper">Read the paper</h2>
 <ul>
-<li>Batch conversion for a whole vector/data frame of dates</li>
-<li>Plot a time series grouped by tithi/nakshatra to visually inspect seasonality</li>
-<li>Build Diwali regressors and compare model fit</li>
+<li>DOI: https://doi.org/10.1007/s11042-023-16553-w</li>
+<li>Embedded PDF: see the <a href="./publications.html">Publication</a> page</li>
 </ul>
 
 

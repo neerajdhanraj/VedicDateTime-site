@@ -156,12 +156,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-vedicdatetime" id="toc-what-is-vedicdatetime" class="nav-link active" data-scroll-target="#what-is-vedicdatetime">What is VedicDateTime?</a></li>
-  <li><a href="#whats-inside-high-level" id="toc-whats-inside-high-level" class="nav-link" data-scroll-target="#whats-inside-high-level">What’s inside (high level)</a></li>
+  <li><a href="#vedicdatetime" id="toc-vedicdatetime" class="nav-link active" data-scroll-target="#vedicdatetime">VedicDateTime</a></li>
+  <li><a href="#authors-paper" id="toc-authors-paper" class="nav-link" data-scroll-target="#authors-paper">Authors (paper)</a></li>
+  <li><a href="#maintainer" id="toc-maintainer" class="nav-link" data-scroll-target="#maintainer">Maintainer</a></li>
+  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
   <li><a href="#implementation-notes-paper-summary" id="toc-implementation-notes-paper-summary" class="nav-link" data-scroll-target="#implementation-notes-paper-summary">Implementation notes (paper summary)</a></li>
   <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   <li><a href="#funding-acknowledgement" id="toc-funding-acknowledgement" class="nav-link" data-scroll-target="#funding-acknowledgement">Funding acknowledgement</a></li>
-  <li><a href="#authors-paper" id="toc-authors-paper" class="nav-link" data-scroll-target="#authors-paper">Authors (paper)</a></li>
   <li><a href="#limitations-future-scope-as-stated-in-the-paper" id="toc-limitations-future-scope-as-stated-in-the-paper" class="nav-link" data-scroll-target="#limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -188,52 +189,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="what-is-vedicdatetime" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-vedicdatetime">What is VedicDateTime?</h2>
-<p><strong>VedicDateTime</strong> is an R package for computing entities from the <strong>Vedic (lunisolar) calendar system</strong> and converting between <strong>Gregorian</strong> time and Vedic calendar entities.</p>
-<p>The package is described in the open-access paper:</p>
-<ul>
-<li>https://doi.org/10.1007/s11042-023-16553-w</li>
-</ul>
-<p>Project links:</p>
+<section id="vedicdatetime" class="level2">
+<h2 class="anchored" data-anchor-id="vedicdatetime">VedicDateTime</h2>
+<p><strong>VedicDateTime</strong> is an R package for computing entities from the <strong>Vedic (lunisolar) calendar system</strong> and converting between <strong>Gregorian</strong> time (or <strong>Julian Day Numbers</strong>) and Vedic calendar entities.</p>
 <ul>
 <li>CRAN: https://cran.r-project.org/package=VedicDateTime</li>
 <li>GitHub: https://github.com/neerajdhanraj/VedicDateTime</li>
-<li>Website: https://vedicdatetime.org</li>
+<li>Paper (open access): https://doi.org/10.1007/s11042-023-16553-w</li>
 </ul>
-</section>
-<section id="whats-inside-high-level" class="level2">
-<h2 class="anchored" data-anchor-id="whats-inside-high-level">What’s inside (high level)</h2>
-<p>From the paper, VedicDateTime implements the five key Panchanga entities:</p>
-<ul>
-<li>tithi</li>
-<li>vaara</li>
-<li>nakshatra</li>
-<li>yoga</li>
-<li>karana</li>
-</ul>
-<p>…and also provides a broader set of helper functions for related entities such as rashi/lagna/masa/ritu/samvatsara and sunrise/sunset/moonrise/moonset.</p>
-</section>
-<section id="implementation-notes-paper-summary" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-notes-paper-summary">Implementation notes (paper summary)</h2>
-<p>The paper describes algorithmic design choices including:</p>
-<ul>
-<li>computations anchored to <strong>local sunrise</strong> (location-dependent)</li>
-<li>Lahiri Ayanamsa for sidereal corrections</li>
-<li>use of Swiss Ephemeris (via R dependencies) for astronomical computations</li>
-<li>inverse Lagrange interpolation (with 0.25-day offsets) to compute end times</li>
-</ul>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>VedicDateTime is distributed under <strong>GPL-3</strong> (as stated in the paper and in CRAN metadata).</p>
-</section>
-<section id="funding-acknowledgement" class="level2">
-<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
-<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
 </section>
 <section id="authors-paper" class="level2">
 <h2 class="anchored" data-anchor-id="authors-paper">Authors (paper)</h2>
+<p>The package is described in the peer‑reviewed paper authored by:</p>
 <ul>
 <li>Neeraj Dhanraj Bokde</li>
 <li>Prajwal Kailasnath Patil</li>
@@ -242,18 +209,55 @@ ul.task-list li input[type="checkbox"] {
 <li>Andrés E. Feijóo‑Lorenzo</li>
 </ul>
 </section>
+<section id="maintainer" class="level2">
+<h2 class="anchored" data-anchor-id="maintainer">Maintainer</h2>
+<ul>
+<li><strong>Neeraj Dhanraj Bokde</strong> (Maintainer)</li>
+<li>Email: <a href="mailto:neerajdhanraj@gmail.com">neerajdhanraj@gmail.com</a></li>
+</ul>
+</section>
+<section id="scope" class="level2">
+<h2 class="anchored" data-anchor-id="scope">Scope</h2>
+<p>VedicDateTime implements the five key Panchanga entities:</p>
+<ul>
+<li><strong>tithi</strong></li>
+<li><strong>vaara</strong></li>
+<li><strong>nakshatra</strong></li>
+<li><strong>yoga</strong></li>
+<li><strong>karana</strong></li>
+</ul>
+<p>It also provides supporting functions for related entities and astronomical calculations, including:</p>
+<ul>
+<li>sunrise/sunset, moonrise/moonset</li>
+<li>solar/lunar longitudes</li>
+<li>rashi, lagna, masa, ritu, samvatsara</li>
+<li>Gregorian ↔︎ Julian day conversions</li>
+</ul>
+</section>
+<section id="implementation-notes-paper-summary" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-notes-paper-summary">Implementation notes (paper summary)</h2>
+<p>The paper describes algorithmic design choices including:</p>
+<ul>
+<li>computations anchored to <strong>local sunrise</strong> (location-dependent)</li>
+<li><strong>Lahiri Ayanamsa</strong> for sidereal corrections</li>
+<li>use of <strong>Swiss Ephemeris</strong> (via R dependencies) for astronomical computations</li>
+<li><strong>inverse Lagrange interpolation</strong> (with 0.25-day offsets) to compute end times</li>
+</ul>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p>VedicDateTime is distributed under <strong>GPL-3</strong>.</p>
+</section>
+<section id="funding-acknowledgement" class="level2">
+<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
+<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
+</section>
 <section id="limitations-future-scope-as-stated-in-the-paper" class="level2">
 <h2 class="anchored" data-anchor-id="limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</h2>
 <p>The paper notes future improvements such as:</p>
 <ul>
-<li>adding <strong>visualization capabilities</strong> for calendar entities</li>
-<li>adding native <strong>R date-time object support</strong> (e.g., S4 classes) for Vedic date-time handling</li>
-</ul>
-<p>If you are using VedicDateTime for research, we recommend recording:</p>
-<ul>
-<li>package version</li>
-<li>location &amp; timezone assumptions</li>
-<li>input time conventions</li>
+<li>adding visualization capabilities for calendar entities</li>
+<li>adding native R date-time object support (e.g., S4 classes) for Vedic date-time handling</li>
 </ul>
 
 
