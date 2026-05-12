@@ -1,0 +1,66 @@
+---
+title: "Roadmap & AI"
+---
+
+This page summarizes planned improvements and future directions for **VedicDateTime**, based on the package paper, the CRAN package, and ongoing development work.
+
+## Near-term roadmap
+
+### 1) Documentation and onboarding
+
+- Expand tutorials for common workflows (Panchanga for a place, batch conversion, feature engineering for time-series)
+- Publish and maintain **pkgdown** API reference under this website (`API (pkgdown)`) so function documentation stays accurate and searchable
+
+### 2) Broader calendrical coverage
+
+- Support additional Vedic calendar variants and conversion methods where appropriate
+- Improve utilities for common research tasks (e.g., working with ranges, repeated conversions, and reproducible “place” definitions)
+
+### 3) Accuracy, reproducibility, and validation
+
+- Expand cross-validation against authoritative sources and other well-established implementations
+- Increase regression tests for edge cases such as skipped entities and midnight-crossing end times
+
+### 4) Performance and scalability
+
+- Vectorized and parallel workflows for large date ranges
+- Caching of repeated astronomical computations for faster repeated queries
+
+## Medium-term roadmap (from the paper’s limitations)
+
+The paper notes areas for future work:
+
+- Visualization capabilities for calendar entities
+- Native R date-time object support (e.g., an S4 class) for Vedic date-time handling
+
+## AI-assisted directions (future)
+
+The following are **future ideas** to improve usability and contributor productivity, while keeping computational results grounded in the package’s algorithms and documentation.
+
+### 1) Documentation assistant (grounded Q&A)
+
+- A Q&A layer that answers user questions by searching **pkgdown docs + vignettes + the paper**, then linking back to the exact functions and help pages.
+
+### 2) Example and workflow generator
+
+- Generate reproducible R snippets for common tasks (e.g., “compute tithi/nakshatra for a location for one year”, “create regressors around a festival window”) using the existing API.
+
+### 3) Contributor support and triage
+
+- Auto-label GitHub issues (bug / doc / enhancement) using issue text
+- Suggest minimal reproducible examples and missing diagnostics (e.g., location/timezone details)
+
+### 4) AI-assisted time-series feature engineering templates
+
+- Provide templates that convert Gregorian timestamps into Vedic features (tithi, nakshatra, yoga, masa) for modeling pipelines.
+
+## How to contribute
+
+- Repository: [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
+- Issues: [github.com/neerajdhanraj/VedicDateTime/issues](https://github.com/neerajdhanraj/VedicDateTime/issues)
+
+If you are proposing roadmap items, please include:
+
+- the motivating use case
+- expected inputs/outputs
+- references (paper/CRAN docs) where applicable

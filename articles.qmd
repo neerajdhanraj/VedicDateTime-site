@@ -2,61 +2,69 @@
 title: "Tutorials & case studies"
 ---
 
-This section collects longer-form explanations, examples, and the case studies presented in the VedicDateTime paper.
+This section collects longer-form explanations, worked examples, and the case studies presented in the VedicDateTime paper.
 
----
+## Core idea
 
-## Tutorial 1 — Compute Panchanga for a place
-
-A common workflow is:
+Most computations follow the pattern:
 
 1. Convert a Gregorian date to a Julian day (`gregorian_to_jd`) or start from a JD.
 2. Provide a location as `place <- c(latitude, longitude, timezone_offset)`.
-3. Compute Panchanga entities: tithi, vaara, nakshatra, yoga, karana.
+3. Compute one or more Vedic entities (tithi/vaara/nakshatra/yoga/karana) and optionally map indices to names.
 
-Example:
+---
+
+## Worked examples (from the package README)
+
+### Example 1 — tithi (lunar day) for a Gregorian date
 
 ```r
+library("VedicDateTime")
 place <- c(15.34, 75.13, +5.5)
 
-jd <- 2459778
+tithi(gregorian_to_jd(08, 09, 2022), place)
+```
 
-tithi(jd, place)
-vaara(jd)
-nakshatra(jd, place)
-yoga(jd, place)
-karana(jd, place)
+### Example 2 — vaara (weekday) for a Gregorian date
+
+```r
+library("VedicDateTime")
+
+vaara(gregorian_to_jd(08, 09, 2022))
+```
+
+### Example 3 — masa (lunar month) for a Gregorian date
+
+```r
+library("VedicDateTime")
+place <- c(15.34, 75.13, +5.5)
+
+masa(gregorian_to_jd(08, 09, 2022), place)
+```
+
+### Example 4 — Gregorian → Julian day
+
+```r
+library("VedicDateTime")
+
+gregorian_to_jd(08, 09, 2022) # dd, mm, yyyy
 ```
 
 ---
 
-## Tutorial 2 — Turn Vedic entities into time-series features
+## Vignettes
 
-VedicDateTime enables calendar features such as:
+The package includes vignette materials that illustrate computations and workflows.
 
-- tithi index
-- nakshatra index
-- yoga index
-- rashi / masa
-
-A typical workflow is:
-
-1. Compute one or more entity indices for each observation date.
-2. Encode indices as factors (or one-hot variables).
-3. Use these as regressors in a forecasting / regression model.
-
-```r
-# Pseudocode sketch (adapt to your workflow)
-# df$tithi <- tithi(df$jd, place)[1]
-# df$nakshatra <- nakshatra(df$jd, place)[1]
-# model <- lm(y ~ factor(tithi) + factor(nakshatra), data = df)
-```
+- [Tithi vignette (PDF)](vignettes/tithi.pdf)
+- [Nakshatra vignette (PDF)](vignettes/nakshatra.pdf)
+- [Yoga vignette (PDF)](vignettes/yoga.pdf)
 
 ---
 
 ## Case study 1 (paper) — Calendar seasonality and economic output
 
-The paper highlights that calendars can have strong effects on economic and social behavior, and discusses India’s **Index of Industrial Production (IIP)** as an example.
+The paper highlights that calendars can affect economic and social behavior, and discusses India’s **Index of Industrial Production (IIP)** as an example.
 
 Key motivations described:
 
@@ -81,5 +89,5 @@ Motivation:
 
 ## Read the paper
 
-- DOI: https://doi.org/10.1007/s11042-023-16553-w
+- DOI: [doi.org/10.1007/s11042-023-16553-w](https://doi.org/10.1007/s11042-023-16553-w)
 - Embedded PDF: see the [Publication](publications.qmd) page

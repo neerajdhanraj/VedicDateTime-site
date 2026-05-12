@@ -187,4 +187,5 @@ The complete, auto-generated API reference (built from the package documentation
 
 - [API Reference (pkgdown)](pkgdown/)
 
-This includes function arguments, return values, and the full reference index.
+If you see a 404 on the pkgdown link, it means pkgdown has not been built/deployed yet.
+In that case, use this page (Reference) until the next successful site build.

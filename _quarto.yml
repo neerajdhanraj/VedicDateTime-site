@@ -17,14 +17,16 @@ website:
         text: Home
       - href: getting-started.qmd
         text: Getting started
-      - href: pkgdown/
-        text: Reference
       - href: reference.qmd
-        text: Reference overview
+        text: Reference
+      - href: pkgdown/
+        text: API (pkgdown)
       - href: articles.qmd
         text: Tutorials & case studies
       - href: publications.qmd
         text: Publication
+      - href: roadmap.qmd
+        text: Roadmap & AI
       - href: faq.qmd
         text: FAQ
       - href: contributing.qmd

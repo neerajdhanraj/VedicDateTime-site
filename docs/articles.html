@@ -141,12 +141,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Getting started</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pkgdown/"> 
+    <a class="nav-link" href="./reference.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./reference.html"> 
-<span class="menu-text">Reference overview</span></a>
+    <a class="nav-link" href="./pkgdown/"> 
+<span class="menu-text">API (pkgdown)</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./articles.html" aria-current="page"> 
@@ -155,6 +155,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="./publications.html"> 
 <span class="menu-text">Publication</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./roadmap.html"> 
+<span class="menu-text">Roadmap &amp; AI</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./faq.html"> 
@@ -195,8 +199,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tutorial-1-compute-panchanga-for-a-place" id="toc-tutorial-1-compute-panchanga-for-a-place" class="nav-link active" data-scroll-target="#tutorial-1-compute-panchanga-for-a-place">Tutorial 1 — Compute Panchanga for a place</a></li>
-  <li><a href="#tutorial-2-turn-vedic-entities-into-time-series-features" id="toc-tutorial-2-turn-vedic-entities-into-time-series-features" class="nav-link" data-scroll-target="#tutorial-2-turn-vedic-entities-into-time-series-features">Tutorial 2 — Turn Vedic entities into time-series features</a></li>
+  <li><a href="#core-idea" id="toc-core-idea" class="nav-link active" data-scroll-target="#core-idea">Core idea</a></li>
+  <li><a href="#worked-examples-from-the-package-readme" id="toc-worked-examples-from-the-package-readme" class="nav-link" data-scroll-target="#worked-examples-from-the-package-readme">Worked examples (from the package README)</a>
+  <ul class="collapse">
+  <li><a href="#example-1-tithi-lunar-day-for-a-gregorian-date" id="toc-example-1-tithi-lunar-day-for-a-gregorian-date" class="nav-link" data-scroll-target="#example-1-tithi-lunar-day-for-a-gregorian-date">Example 1 — tithi (lunar day) for a Gregorian date</a></li>
+  <li><a href="#example-2-vaara-weekday-for-a-gregorian-date" id="toc-example-2-vaara-weekday-for-a-gregorian-date" class="nav-link" data-scroll-target="#example-2-vaara-weekday-for-a-gregorian-date">Example 2 — vaara (weekday) for a Gregorian date</a></li>
+  <li><a href="#example-3-masa-lunar-month-for-a-gregorian-date" id="toc-example-3-masa-lunar-month-for-a-gregorian-date" class="nav-link" data-scroll-target="#example-3-masa-lunar-month-for-a-gregorian-date">Example 3 — masa (lunar month) for a Gregorian date</a></li>
+  <li><a href="#example-4-gregorian-julian-day" id="toc-example-4-gregorian-julian-day" class="nav-link" data-scroll-target="#example-4-gregorian-julian-day">Example 4 — Gregorian → Julian day</a></li>
+  </ul></li>
+  <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes">Vignettes</a></li>
   <li><a href="#case-study-1-paper-calendar-seasonality-and-economic-output" id="toc-case-study-1-paper-calendar-seasonality-and-economic-output" class="nav-link" data-scroll-target="#case-study-1-paper-calendar-seasonality-and-economic-output">Case study 1 (paper) — Calendar seasonality and economic output</a></li>
   <li><a href="#case-study-2-paper-diwali-regressors-moving-festival-effects" id="toc-case-study-2-paper-diwali-regressors-moving-festival-effects" class="nav-link" data-scroll-target="#case-study-2-paper-diwali-regressors-moving-festival-effects">Case study 2 (paper) — Diwali regressors (moving festival effects)</a></li>
   <li><a href="#read-the-paper" id="toc-read-the-paper" class="nav-link" data-scroll-target="#read-the-paper">Read the paper</a></li>
@@ -225,52 +236,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This section collects longer-form explanations, examples, and the case studies presented in the VedicDateTime paper.</p>
-<hr>
-<section id="tutorial-1-compute-panchanga-for-a-place" class="level2">
-<h2 class="anchored" data-anchor-id="tutorial-1-compute-panchanga-for-a-place">Tutorial 1 — Compute Panchanga for a place</h2>
-<p>A common workflow is:</p>
+<p>This section collects longer-form explanations, worked examples, and the case studies presented in the VedicDateTime paper.</p>
+<section id="core-idea" class="level2">
+<h2 class="anchored" data-anchor-id="core-idea">Core idea</h2>
+<p>Most computations follow the pattern:</p>
 <ol type="1">
 <li>Convert a Gregorian date to a Julian day (<code>gregorian_to_jd</code>) or start from a JD.</li>
 <li>Provide a location as <code>place &lt;- c(latitude, longitude, timezone_offset)</code>.</li>
-<li>Compute Panchanga entities: tithi, vaara, nakshatra, yoga, karana.</li>
+<li>Compute one or more Vedic entities (tithi/vaara/nakshatra/yoga/karana) and optionally map indices to names.</li>
 </ol>
-<p>Example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="dv">2459778</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(jd, place)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(jd)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">nakshatra</span>(jd, place)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">yoga</span>(jd, place)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">karana</span>(jd, place)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="tutorial-2-turn-vedic-entities-into-time-series-features" class="level2">
-<h2 class="anchored" data-anchor-id="tutorial-2-turn-vedic-entities-into-time-series-features">Tutorial 2 — Turn Vedic entities into time-series features</h2>
-<p>VedicDateTime enables calendar features such as:</p>
+<section id="worked-examples-from-the-package-readme" class="level2">
+<h2 class="anchored" data-anchor-id="worked-examples-from-the-package-readme">Worked examples (from the package README)</h2>
+<section id="example-1-tithi-lunar-day-for-a-gregorian-date" class="level3">
+<h3 class="anchored" data-anchor-id="example-1-tithi-lunar-day-for-a-gregorian-date">Example 1 — tithi (lunar day) for a Gregorian date</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"VedicDateTime"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(<span class="fu">gregorian_to_jd</span>(<span class="dv">08</span>, <span class="dv">09</span>, <span class="dv">2022</span>), place)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-2-vaara-weekday-for-a-gregorian-date" class="level3">
+<h3 class="anchored" data-anchor-id="example-2-vaara-weekday-for-a-gregorian-date">Example 2 — vaara (weekday) for a Gregorian date</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"VedicDateTime"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(<span class="fu">gregorian_to_jd</span>(<span class="dv">08</span>, <span class="dv">09</span>, <span class="dv">2022</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-3-masa-lunar-month-for-a-gregorian-date" class="level3">
+<h3 class="anchored" data-anchor-id="example-3-masa-lunar-month-for-a-gregorian-date">Example 3 — masa (lunar month) for a Gregorian date</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"VedicDateTime"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">masa</span>(<span class="fu">gregorian_to_jd</span>(<span class="dv">08</span>, <span class="dv">09</span>, <span class="dv">2022</span>), place)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-4-gregorian-julian-day" class="level3">
+<h3 class="anchored" data-anchor-id="example-4-gregorian-julian-day">Example 4 — Gregorian → Julian day</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"VedicDateTime"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gregorian_to_jd</span>(<span class="dv">08</span>, <span class="dv">09</span>, <span class="dv">2022</span>) <span class="co"># dd, mm, yyyy</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="vignettes" class="level2">
+<h2 class="anchored" data-anchor-id="vignettes">Vignettes</h2>
+<p>The package includes vignette materials that illustrate computations and workflows.</p>
 <ul>
-<li>tithi index</li>
-<li>nakshatra index</li>
-<li>yoga index</li>
-<li>rashi / masa</li>
+<li><a href="vignettes/tithi.pdf">Tithi vignette (PDF)</a></li>
+<li><a href="vignettes/nakshatra.pdf">Nakshatra vignette (PDF)</a></li>
+<li><a href="vignettes/yoga.pdf">Yoga vignette (PDF)</a></li>
 </ul>
-<p>A typical workflow is:</p>
-<ol type="1">
-<li>Compute one or more entity indices for each observation date.</li>
-<li>Encode indices as factors (or one-hot variables).</li>
-<li>Use these as regressors in a forecasting / regression model.</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudocode sketch (adapt to your workflow)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df$tithi &lt;- tithi(df$jd, place)[1]</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df$nakshatra &lt;- nakshatra(df$jd, place)[1]</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># model &lt;- lm(y ~ factor(tithi) + factor(nakshatra), data = df)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="case-study-1-paper-calendar-seasonality-and-economic-output" class="level2">
 <h2 class="anchored" data-anchor-id="case-study-1-paper-calendar-seasonality-and-economic-output">Case study 1 (paper) — Calendar seasonality and economic output</h2>
-<p>The paper highlights that calendars can have strong effects on economic and social behavior, and discusses India’s <strong>Index of Industrial Production (IIP)</strong> as an example.</p>
+<p>The paper highlights that calendars can affect economic and social behavior, and discusses India’s <strong>Index of Industrial Production (IIP)</strong> as an example.</p>
 <p>Key motivations described:</p>
 <ul>
 <li>India has multiple regions and festivals from multiple religions.</li>
@@ -293,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="read-the-paper" class="level2">
 <h2 class="anchored" data-anchor-id="read-the-paper">Read the paper</h2>
 <ul>
-<li>DOI: https://doi.org/10.1007/s11042-023-16553-w</li>
+<li>DOI: <a href="https://doi.org/10.1007/s11042-023-16553-w">doi.org/10.1007/s11042-023-16553-w</a></li>
 <li>Embedded PDF: see the <a href="./publications.html">Publication</a> page</li>
 </ul>
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Contributing – VedicDateTime</title>
+<title>Roadmap &amp; AI – VedicDateTime</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -157,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./roadmap.html"> 
+    <a class="nav-link active" href="./roadmap.html" aria-current="page"> 
 <span class="menu-text">Roadmap &amp; AI</span></a>
   </li>  
   <li class="nav-item">
@@ -165,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">FAQ</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./contributing.html" aria-current="page"> 
+    <a class="nav-link" href="./contributing.html"> 
 <span class="menu-text">Contributing</span></a>
   </li>  
   <li class="nav-item">
@@ -199,14 +164,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#where-to-contribute" id="toc-where-to-contribute" class="nav-link active" data-scroll-target="#where-to-contribute">Where to contribute</a></li>
-  <li><a href="#ways-to-contribute" id="toc-ways-to-contribute" class="nav-link" data-scroll-target="#ways-to-contribute">Ways to contribute</a></li>
-  <li><a href="#reporting-a-bug-checklist" id="toc-reporting-a-bug-checklist" class="nav-link" data-scroll-target="#reporting-a-bug-checklist">Reporting a bug (checklist)</a></li>
-  <li><a href="#development-setup" id="toc-development-setup" class="nav-link" data-scroll-target="#development-setup">Development setup</a></li>
-  <li><a href="#build" id="toc-build" class="nav-link" data-scroll-target="#build">Build</a></li>
-  <li><a href="#run-checks" id="toc-run-checks" class="nav-link" data-scroll-target="#run-checks">Run checks</a></li>
-  <li><a href="#run-tests" id="toc-run-tests" class="nav-link" data-scroll-target="#run-tests">Run tests</a></li>
-  <li><a href="#funding-acknowledgement" id="toc-funding-acknowledgement" class="nav-link" data-scroll-target="#funding-acknowledgement">Funding acknowledgement</a></li>
+  <li><a href="#near-term-roadmap" id="toc-near-term-roadmap" class="nav-link active" data-scroll-target="#near-term-roadmap">Near-term roadmap</a>
+  <ul class="collapse">
+  <li><a href="#documentation-and-onboarding" id="toc-documentation-and-onboarding" class="nav-link" data-scroll-target="#documentation-and-onboarding">1) Documentation and onboarding</a></li>
+  <li><a href="#broader-calendrical-coverage" id="toc-broader-calendrical-coverage" class="nav-link" data-scroll-target="#broader-calendrical-coverage">2) Broader calendrical coverage</a></li>
+  <li><a href="#accuracy-reproducibility-and-validation" id="toc-accuracy-reproducibility-and-validation" class="nav-link" data-scroll-target="#accuracy-reproducibility-and-validation">3) Accuracy, reproducibility, and validation</a></li>
+  <li><a href="#performance-and-scalability" id="toc-performance-and-scalability" class="nav-link" data-scroll-target="#performance-and-scalability">4) Performance and scalability</a></li>
+  </ul></li>
+  <li><a href="#medium-term-roadmap-from-the-papers-limitations" id="toc-medium-term-roadmap-from-the-papers-limitations" class="nav-link" data-scroll-target="#medium-term-roadmap-from-the-papers-limitations">Medium-term roadmap (from the paper’s limitations)</a></li>
+  <li><a href="#ai-assisted-directions-future" id="toc-ai-assisted-directions-future" class="nav-link" data-scroll-target="#ai-assisted-directions-future">AI-assisted directions (future)</a>
+  <ul class="collapse">
+  <li><a href="#documentation-assistant-grounded-qa" id="toc-documentation-assistant-grounded-qa" class="nav-link" data-scroll-target="#documentation-assistant-grounded-qa">1) Documentation assistant (grounded Q&amp;A)</a></li>
+  <li><a href="#example-and-workflow-generator" id="toc-example-and-workflow-generator" class="nav-link" data-scroll-target="#example-and-workflow-generator">2) Example and workflow generator</a></li>
+  <li><a href="#contributor-support-and-triage" id="toc-contributor-support-and-triage" class="nav-link" data-scroll-target="#contributor-support-and-triage">3) Contributor support and triage</a></li>
+  <li><a href="#ai-assisted-time-series-feature-engineering-templates" id="toc-ai-assisted-time-series-feature-engineering-templates" class="nav-link" data-scroll-target="#ai-assisted-time-series-feature-engineering-templates">4) AI-assisted time-series feature engineering templates</a></li>
+  </ul></li>
+  <li><a href="#how-to-contribute" id="toc-how-to-contribute" class="nav-link" data-scroll-target="#how-to-contribute">How to contribute</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -215,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Contributing</h1>
+<h1 class="title">Roadmap &amp; AI</h1>
 </div>
 
 
@@ -232,62 +205,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Contributions are welcome from R users, developers, and researchers.</p>
-<section id="where-to-contribute" class="level2">
-<h2 class="anchored" data-anchor-id="where-to-contribute">Where to contribute</h2>
+<p>This page summarizes planned improvements and future directions for <strong>VedicDateTime</strong>, based on the package paper, the CRAN package, and ongoing development work.</p>
+<section id="near-term-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="near-term-roadmap">Near-term roadmap</h2>
+<section id="documentation-and-onboarding" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-and-onboarding">1) Documentation and onboarding</h3>
+<ul>
+<li>Expand tutorials for common workflows (Panchanga for a place, batch conversion, feature engineering for time-series)</li>
+<li>Publish and maintain <strong>pkgdown</strong> API reference under this website (<code>API (pkgdown)</code>) so function documentation stays accurate and searchable</li>
+</ul>
+</section>
+<section id="broader-calendrical-coverage" class="level3">
+<h3 class="anchored" data-anchor-id="broader-calendrical-coverage">2) Broader calendrical coverage</h3>
+<ul>
+<li>Support additional Vedic calendar variants and conversion methods where appropriate</li>
+<li>Improve utilities for common research tasks (e.g., working with ranges, repeated conversions, and reproducible “place” definitions)</li>
+</ul>
+</section>
+<section id="accuracy-reproducibility-and-validation" class="level3">
+<h3 class="anchored" data-anchor-id="accuracy-reproducibility-and-validation">3) Accuracy, reproducibility, and validation</h3>
+<ul>
+<li>Expand cross-validation against authoritative sources and other well-established implementations</li>
+<li>Increase regression tests for edge cases such as skipped entities and midnight-crossing end times</li>
+</ul>
+</section>
+<section id="performance-and-scalability" class="level3">
+<h3 class="anchored" data-anchor-id="performance-and-scalability">4) Performance and scalability</h3>
+<ul>
+<li>Vectorized and parallel workflows for large date ranges</li>
+<li>Caching of repeated astronomical computations for faster repeated queries</li>
+</ul>
+</section>
+</section>
+<section id="medium-term-roadmap-from-the-papers-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="medium-term-roadmap-from-the-papers-limitations">Medium-term roadmap (from the paper’s limitations)</h2>
+<p>The paper notes areas for future work:</p>
+<ul>
+<li>Visualization capabilities for calendar entities</li>
+<li>Native R date-time object support (e.g., an S4 class) for Vedic date-time handling</li>
+</ul>
+</section>
+<section id="ai-assisted-directions-future" class="level2">
+<h2 class="anchored" data-anchor-id="ai-assisted-directions-future">AI-assisted directions (future)</h2>
+<p>The following are <strong>future ideas</strong> to improve usability and contributor productivity, while keeping computational results grounded in the package’s algorithms and documentation.</p>
+<section id="documentation-assistant-grounded-qa" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-assistant-grounded-qa">1) Documentation assistant (grounded Q&amp;A)</h3>
+<ul>
+<li>A Q&amp;A layer that answers user questions by searching <strong>pkgdown docs + vignettes + the paper</strong>, then linking back to the exact functions and help pages.</li>
+</ul>
+</section>
+<section id="example-and-workflow-generator" class="level3">
+<h3 class="anchored" data-anchor-id="example-and-workflow-generator">2) Example and workflow generator</h3>
+<ul>
+<li>Generate reproducible R snippets for common tasks (e.g., “compute tithi/nakshatra for a location for one year”, “create regressors around a festival window”) using the existing API.</li>
+</ul>
+</section>
+<section id="contributor-support-and-triage" class="level3">
+<h3 class="anchored" data-anchor-id="contributor-support-and-triage">3) Contributor support and triage</h3>
+<ul>
+<li>Auto-label GitHub issues (bug / doc / enhancement) using issue text</li>
+<li>Suggest minimal reproducible examples and missing diagnostics (e.g., location/timezone details)</li>
+</ul>
+</section>
+<section id="ai-assisted-time-series-feature-engineering-templates" class="level3">
+<h3 class="anchored" data-anchor-id="ai-assisted-time-series-feature-engineering-templates">4) AI-assisted time-series feature engineering templates</h3>
+<ul>
+<li>Provide templates that convert Gregorian timestamps into Vedic features (tithi, nakshatra, yoga, masa) for modeling pipelines.</li>
+</ul>
+</section>
+</section>
+<section id="how-to-contribute" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-contribute">How to contribute</h2>
 <ul>
 <li>Repository: <a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
 <li>Issues: <a href="https://github.com/neerajdhanraj/VedicDateTime/issues">github.com/neerajdhanraj/VedicDateTime/issues</a></li>
 </ul>
-</section>
-<section id="ways-to-contribute" class="level2">
-<h2 class="anchored" data-anchor-id="ways-to-contribute">Ways to contribute</h2>
+<p>If you are proposing roadmap items, please include:</p>
 <ul>
-<li>Bug reports with reproducible examples</li>
-<li>Documentation improvements (website, vignettes, function examples)</li>
-<li>Tests (edge cases, regression tests)</li>
-<li>Performance improvements (vectorization, caching)</li>
-<li>New calendar entities / helpers</li>
+<li>the motivating use case</li>
+<li>expected inputs/outputs</li>
+<li>references (paper/CRAN docs) where applicable</li>
 </ul>
-</section>
-<section id="reporting-a-bug-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="reporting-a-bug-checklist">Reporting a bug (checklist)</h2>
-<p>Please include:</p>
-<ol type="1">
-<li>What you expected to happen</li>
-<li>What actually happened</li>
-<li>A minimal reproducible example (code + inputs)</li>
-<li>Place inputs: latitude, longitude, timezone offset</li>
-<li>Output of <code>sessionInfo()</code></li>
-</ol>
-</section>
-<section id="development-setup" class="level2">
-<h2 class="anchored" data-anchor-id="development-setup">Development setup</h2>
-<p>Clone the repository and install development tools:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>, <span class="st">"testthat"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Install from source (development workflow):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="build" class="level2">
-<h2 class="anchored" data-anchor-id="build">Build</h2>
-<p>Build the package (including compact vignettes):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="run-checks" class="level2">
-<h2 class="anchored" data-anchor-id="run-checks">Run checks</h2>
-<p>Local check:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>(<span class="at">build_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>CRAN-style check using rhub:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("rhub")</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rhub<span class="sc">::</span><span class="fu">check_for_cran</span>(<span class="at">check_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="run-tests" class="level2">
-<h2 class="anchored" data-anchor-id="run-tests">Run tests</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="funding-acknowledgement" class="level2">
-<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
-<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
 
 
 </section>

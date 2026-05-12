@@ -20,13 +20,18 @@ An open-source R package to compute key entities from the <b>Vedic (lunisolar) c
 **Paper:** [doi.org/10.1007/s11042-023-16553-w](https://doi.org/10.1007/s11042-023-16553-w)
 
 [Install & first steps](getting-started.qmd){.btn .btn-primary}
-[Browse functions](reference.qmd){.btn .btn-secondary}
+[Reference overview](reference.qmd){.btn .btn-secondary}
+[API (pkgdown)](pkgdown/){.btn .btn-secondary}
 
 </div>
 
 :::
 
 ![](assets/clipboard-2026-05-11_10-09-35.png){fig-alt="Screenshot"}
+
+## Package status
+
+[![CRAN status](https://www.r-pkg.org/badges/version/VedicDateTime)](https://cran.r-project.org/package=VedicDateTime)
 
 ## Why VedicDateTime?
 

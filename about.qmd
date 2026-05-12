@@ -25,6 +25,12 @@ The package is described in the peer‑reviewed paper authored by:
 - **Neeraj Dhanraj Bokde** (Maintainer)
 - Email: [neerajdhanraj@gmail.com](mailto:neerajdhanraj@gmail.com)
 
+## Contributors
+
+Additional contributions are tracked in the GitHub repository:
+
+- [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
+
 ## Scope
 
 VedicDateTime implements the five key Panchanga entities:
