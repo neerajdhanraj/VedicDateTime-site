@@ -32,7 +32,7 @@
     "href": "roadmap.html#how-to-contribute",
     "title": "Roadmap & AI",
     "section": "How to contribute",
-    "text": "How to contribute\n\nRepository: github.com/neerajdhanraj/VedicDateTime\nIssues: github.com/neerajdhanraj/VedicDateTime/issues\n\nIf you are proposing roadmap items, please include:\n\nthe motivating use case\nexpected inputs/outputs\nreferences (paper/CRAN docs) where applicable"
+    "text": "How to contribute\n\nRepository: github.com/neerajdhanraj/VedicDateTime\nIssues: github.com/neerajdhanraj/VedicDateTime/issues"
   },
   {
     "objectID": "README-site.html",
@@ -515,41 +515,55 @@
     "href": "reference.html",
     "title": "Reference",
     "section": "",
-    "text": "This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and listed in the CRAN manual.\nAuthoritative sources:"
+    "text": "This page is a practical guide to VedicDateTime functions and how to use them. For the complete function index with argument tables, see the pkgdown site:"
   },
   {
-    "objectID": "reference.html#core-inputs-return-style",
-    "href": "reference.html#core-inputs-return-style",
+    "objectID": "reference.html#core-inputs",
+    "href": "reference.html#core-inputs",
     "title": "Reference",
-    "section": "Core inputs & return style",
-    "text": "Core inputs & return style\n\nInputs\nMany functions use:\n\njd: Julian Day Number\nplace: numeric vector c(latitude, longitude, timezone_offset)\n\nExample (used in the paper):\nplace &lt;- c(15.34, 75.13, +5.5)\n\n\nReturns\nSeveral functions return numeric vectors that include:\n\nan index (which tithi / nakshatra / yoga)\nan end time encoded as hour minute second\n\nThe paper notes that times beyond 24:00 indicate after midnight (next day)."
+    "section": "Core inputs",
+    "text": "Core inputs\nMany functions work with:\n\njd: Julian Day Number\nplace: numeric vector c(latitude, longitude, timezone_offset)\n\nExample:\nplace &lt;- c(15.34, 75.13, +5.5)"
   },
   {
     "objectID": "reference.html#panchanga-five-arms",
     "href": "reference.html#panchanga-five-arms",
     "title": "Reference",
     "section": "Panchanga (five arms)",
-    "text": "Panchanga (five arms)\n\ntithi()\nMeaning: lunar day (based on lunar phase).\nPaper summary of computation:\n\ncompute lunar phase from difference between lunar and solar longitudes at sunrise\ndetermine the tithi by dividing by 12\ncompute end time via inverse Lagrange interpolation using longitudes at 0.25-day offsets\n\nExample from the paper:\njd &lt;- 2459778\nplace &lt;- c(15.34, 75.13, +5.5)\n\ntithi(jd, place)\n#&gt; [1] 20 20 55 35\nRelated:\n\ntithis()\nget_tithi_name()\n\n\n\nvaara()\nMeaning: weekday.\nPaper examples:\nvaara(2459778)\n#&gt; [1] 1\n\nget_vaara_name(2459778)\n#&gt; [1] \"Ravivar\"\nRelated:\n\nvaaras()\nget_vaara_name()\n\n\n\nnakshatra()\nMeaning: constellation segment based on the moon’s position.\nPaper notes: uses Lahiri Ayanamsa and sunrise from Swiss Ephemeris; end times via inverse Lagrange interpolation with 0.25-day offsets.\nExample from the paper:\nnakshatra(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1] 25 24 24  1\nRelated:\n\nnakshatras()\nget_nakshatra_name()\n\n\n\nyoga()\nMeaning: 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.\nExample from the paper:\nyoga(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1]  5 27 26 12\nRelated:\n\nyogas()\nget_yoga_name()\n\n\n\nkarana()\nMeaning: half-tithi; recurring and fixed karanas.\nExample from the paper:\nkarana(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1] 39 40\n\nget_karana_name(39, 40)\n#&gt; [1] \"Kaulava-Taitila\"\nRelated:\n\nkaranas()\nget_karana_name()"
+    "text": "Panchanga (five arms)\n\ntithi()\nCompute the tithi (lunar day) for a given JD and place.\nlibrary(VedicDateTime)\nplace &lt;- c(15.34, 75.13, +5.5)\n\ntithi(gregorian_to_jd(8, 9, 2022), place)\nRelated:\n\ntithis()\nget_tithi_name()\n\n\n\nvaara()\nCompute the weekday.\nlibrary(VedicDateTime)\n\nvaara(gregorian_to_jd(8, 9, 2022))\nRelated:\n\nvaaras()\nget_vaara_name()\n\n\n\nnakshatra()\nCompute nakshatra for a JD and place.\nlibrary(VedicDateTime)\nplace &lt;- c(15.34, 75.13, +5.5)\n\nnakshatra(gregorian_to_jd(8, 9, 2022), place)\nRelated:\n\nnakshatras()\nget_nakshatra_name()\n\n\n\nyoga()\nCompute yoga for a JD and place.\nlibrary(VedicDateTime)\nplace &lt;- c(15.34, 75.13, +5.5)\n\nyoga(gregorian_to_jd(8, 9, 2022), place)\nRelated:\n\nyogas()\nget_yoga_name()\n\n\n\nkarana()\nCompute karana (half‑tithi) for a JD and place.\nlibrary(VedicDateTime)\nplace &lt;- c(15.34, 75.13, +5.5)\n\nkarana(gregorian_to_jd(8, 9, 2022), place)\nRelated:\n\nkaranas()\nget_karana_name()"
   },
   {
-    "objectID": "reference.html#a-larger-set-of-functions-cran-manual",
-    "href": "reference.html#a-larger-set-of-functions-cran-manual",
+    "objectID": "reference.html#conversions",
+    "href": "reference.html#conversions",
     "title": "Reference",
-    "section": "A larger set of functions (CRAN manual)",
-    "text": "A larger set of functions (CRAN manual)\nThe CRAN manual lists additional topics/functions beyond the Panchanga basics. Common categories include:\n\nConversions\n\ngregorian_to_jd()\njd_to_gregorian()\n\n\n\nAstronomical quantities\n\nsun_longitude()\nmoon_longitude()\nlunar_phase()\n\n\n\nRise/set calculations\n\nsunrise() / sunset()\nmoonrise() / moonset()\n\n\n\nSigns / months / seasons / years\n\nrashi() / rashis() and get_rashi_name()\nlagna() and get_lagna_name()\nmasa() / masas() and get_masa_name()\nritu() / ritus() and get_ritu_name()\nsamvatsara() / samvatsars() and get_samvatsara_name()\n\n\n\nUtilities\n\nto_dms()\nunwrap_angles()\ninverse_lagrange()"
+    "section": "Conversions",
+    "text": "Conversions\n\ngregorian_to_jd() — Gregorian date → Julian day\njd_to_gregorian() — Julian day → Gregorian date"
   },
   {
-    "objectID": "reference.html#dependencies",
-    "href": "reference.html#dependencies",
+    "objectID": "reference.html#riseset-and-longitudes",
+    "href": "reference.html#riseset-and-longitudes",
     "title": "Reference",
-    "section": "Dependencies",
-    "text": "Dependencies\nThe CRAN metadata indicates the package imports swephR (Swiss Ephemeris bindings), consistent with the paper’s discussion."
+    "section": "Rise/set and longitudes",
+    "text": "Rise/set and longitudes\n\nsunrise(), sunset()\nmoonrise(), moonset()\nsun_longitude(), moon_longitude()\nlunar_phase(), new_moon()"
   },
   {
-    "objectID": "reference.html#full-api-reference-pkgdown",
-    "href": "reference.html#full-api-reference-pkgdown",
+    "objectID": "reference.html#signs-months-seasons-and-years",
+    "href": "reference.html#signs-months-seasons-and-years",
     "title": "Reference",
-    "section": "Full API reference (pkgdown)",
-    "text": "Full API reference (pkgdown)\nThe complete, auto-generated API reference (built from the package documentation) is available here:\n\nAPI Reference (pkgdown)\n\nIf you see a 404 on the pkgdown link, it means pkgdown has not been built/deployed yet. In that case, use this page (Reference) until the next successful site build."
+    "section": "Signs, months, seasons, and years",
+    "text": "Signs, months, seasons, and years\n\nrashi() / get_rashi_name()\nlagna() / get_lagna_name()\nmasa() / get_masa_name()\nritu() / get_ritu_name()\nsamvatsara() / get_samvatsara_name()"
+  },
+  {
+    "objectID": "reference.html#utilities",
+    "href": "reference.html#utilities",
+    "title": "Reference",
+    "section": "Utilities",
+    "text": "Utilities\n\nto_dms()\nunwrap_angles()\ninverse_lagrange()"
+  },
+  {
+    "objectID": "reference.html#useful-links",
+    "href": "reference.html#useful-links",
+    "title": "Reference",
+    "section": "Useful links",
+    "text": "Useful links\n\nCRAN: cran.r-project.org/package=VedicDateTime\nSource: github.com/neerajdhanraj/VedicDateTime"
   }
 ]

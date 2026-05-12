@@ -58,9 +58,3 @@ The following are **future ideas** to improve usability and contributor producti
 
 - Repository: [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
 - Issues: [github.com/neerajdhanraj/VedicDateTime/issues](https://github.com/neerajdhanraj/VedicDateTime/issues)
-
-If you are proposing roadmap items, please include:
-
-- the motivating use case
-- expected inputs/outputs
-- references (paper/CRAN docs) where applicable

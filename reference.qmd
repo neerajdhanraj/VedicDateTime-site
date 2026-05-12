@@ -2,62 +2,36 @@
 title: "Reference"
 ---
 
-This page is a practical, human-readable guide to the main functions described in the VedicDateTime paper and listed in the CRAN manual.
+This page is a practical guide to VedicDateTime functions and how to use them. For the complete function index with argument tables, see the pkgdown site:
 
-Authoritative sources:
-
-- CRAN package page: https://cran.r-project.org/package=VedicDateTime
-- GitHub repository: https://github.com/neerajdhanraj/VedicDateTime
-- Paper (open access): https://doi.org/10.1007/s11042-023-16553-w
+- [API Reference (pkgdown)](pkgdown/index.html)
 
 ---
 
-## Core inputs & return style
+## Core inputs
 
-### Inputs
-
-Many functions use:
+Many functions work with:
 
 - `jd`: **Julian Day Number**
 - `place`: numeric vector `c(latitude, longitude, timezone_offset)`
 
-Example (used in the paper):
+Example:
 
 ```r
 place <- c(15.34, 75.13, +5.5)
 ```
 
-### Returns
-
-Several functions return numeric vectors that include:
-
-- an index (which tithi / nakshatra / yoga)
-- an end time encoded as `hour minute second`
-
-The paper notes that times beyond 24:00 indicate after midnight (next day).
-
----
-
 ## Panchanga (five arms)
 
 ### tithi()
 
-**Meaning:** lunar day (based on lunar phase).
-
-**Paper summary of computation:**
-
-- compute lunar phase from difference between lunar and solar longitudes at sunrise
-- determine the tithi by dividing by 12
-- compute end time via inverse Lagrange interpolation using longitudes at 0.25-day offsets
-
-**Example from the paper:**
+Compute the **tithi (lunar day)** for a given JD and place.
 
 ```r
-jd <- 2459778
+library(VedicDateTime)
 place <- c(15.34, 75.13, +5.5)
 
-tithi(jd, place)
-#> [1] 20 20 55 35
+tithi(gregorian_to_jd(8, 9, 2022), place)
 ```
 
 Related:
@@ -67,16 +41,12 @@ Related:
 
 ### vaara()
 
-**Meaning:** weekday.
-
-**Paper examples:**
+Compute the **weekday**.
 
 ```r
-vaara(2459778)
-#> [1] 1
+library(VedicDateTime)
 
-get_vaara_name(2459778)
-#> [1] "Ravivar"
+vaara(gregorian_to_jd(8, 9, 2022))
 ```
 
 Related:
@@ -86,15 +56,13 @@ Related:
 
 ### nakshatra()
 
-**Meaning:** constellation segment based on the moon’s position.
-
-**Paper notes:** uses Lahiri Ayanamsa and sunrise from Swiss Ephemeris; end times via inverse Lagrange interpolation with 0.25-day offsets.
-
-**Example from the paper:**
+Compute **nakshatra** for a JD and place.
 
 ```r
-nakshatra(2459778, c(15.34, 75.13, +5.5))
-#> [1] 25 24 24  1
+library(VedicDateTime)
+place <- c(15.34, 75.13, +5.5)
+
+nakshatra(gregorian_to_jd(8, 9, 2022), place)
 ```
 
 Related:
@@ -104,13 +72,13 @@ Related:
 
 ### yoga()
 
-**Meaning:** 27 yogas (each 13°20′), based on sun + moon sidereal longitudes.
-
-**Example from the paper:**
+Compute **yoga** for a JD and place.
 
 ```r
-yoga(2459778, c(15.34, 75.13, +5.5))
-#> [1]  5 27 26 12
+library(VedicDateTime)
+place <- c(15.34, 75.13, +5.5)
+
+yoga(gregorian_to_jd(8, 9, 2022), place)
 ```
 
 Related:
@@ -120,16 +88,13 @@ Related:
 
 ### karana()
 
-**Meaning:** half-tithi; recurring and fixed karanas.
-
-**Example from the paper:**
+Compute **karana (half‑tithi)** for a JD and place.
 
 ```r
-karana(2459778, c(15.34, 75.13, +5.5))
-#> [1] 39 40
+library(VedicDateTime)
+place <- c(15.34, 75.13, +5.5)
 
-get_karana_name(39, 40)
-#> [1] "Kaulava-Taitila"
+karana(gregorian_to_jd(8, 9, 2022), place)
 ```
 
 Related:
@@ -139,35 +104,33 @@ Related:
 
 ---
 
-## A larger set of functions (CRAN manual)
+## Conversions
 
-The CRAN manual lists additional topics/functions beyond the Panchanga basics. Common categories include:
+- `gregorian_to_jd()` — Gregorian date → Julian day
+- `jd_to_gregorian()` — Julian day → Gregorian date
 
-### Conversions
+---
 
-- `gregorian_to_jd()`
-- `jd_to_gregorian()`
+## Rise/set and longitudes
 
-### Astronomical quantities
+- `sunrise()`, `sunset()`
+- `moonrise()`, `moonset()`
+- `sun_longitude()`, `moon_longitude()`
+- `lunar_phase()`, `new_moon()`
 
-- `sun_longitude()`
-- `moon_longitude()`
-- `lunar_phase()`
+---
 
-### Rise/set calculations
+## Signs, months, seasons, and years
 
-- `sunrise()` / `sunset()`
-- `moonrise()` / `moonset()`
+- `rashi()` / `get_rashi_name()`
+- `lagna()` / `get_lagna_name()`
+- `masa()` / `get_masa_name()`
+- `ritu()` / `get_ritu_name()`
+- `samvatsara()` / `get_samvatsara_name()`
 
-### Signs / months / seasons / years
+---
 
-- `rashi()` / `rashis()` and `get_rashi_name()`
-- `lagna()` and `get_lagna_name()`
-- `masa()` / `masas()` and `get_masa_name()`
-- `ritu()` / `ritus()` and `get_ritu_name()`
-- `samvatsara()` / `samvatsars()` and `get_samvatsara_name()`
-
-### Utilities
+## Utilities
 
 - `to_dms()`
 - `unwrap_angles()`
@@ -175,17 +138,7 @@ The CRAN manual lists additional topics/functions beyond the Panchanga basics. C
 
 ---
 
-## Dependencies
+## Useful links
 
-The CRAN metadata indicates the package imports **swephR** (Swiss Ephemeris bindings), consistent with the paper’s discussion.
-
----
-
-## Full API reference (pkgdown)
-
-The complete, auto-generated API reference (built from the package documentation) is available here:
-
-- [API Reference (pkgdown)](pkgdown/)
-
-If you see a 404 on the pkgdown link, it means pkgdown has not been built/deployed yet.
-In that case, use this page (Reference) until the next successful site build.
+- CRAN: [cran.r-project.org/package=VedicDateTime](https://cran.r-project.org/package=VedicDateTime)
+- Source: [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
