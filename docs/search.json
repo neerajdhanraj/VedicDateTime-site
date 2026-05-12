@@ -74,7 +74,7 @@
     "href": "index.html",
     "title": "VedicDateTime",
     "section": "",
-    "text": "An open-source R package to compute key entities from the Vedic (lunisolar) calendar and convert Gregorian dates (or Julian Day Numbers) into Panchanga components such as tithi, vaara, nakshatra, yoga, and karana.\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub: github.com/neerajdhanraj/VedicDateTime\nPaper: doi.org/10.1007/s11042-023-16553-w\nInstall & first steps Reference overview API (pkgdown)"
+    "text": "An open-source R package to compute key entities from the Vedic (lunisolar) calendar and convert Gregorian dates (or Julian Day Numbers) into Panchanga components such as tithi, vaara, nakshatra, yoga, and karana.\n\nCRAN: cran.r-project.org/package=VedicDateTime\nGitHub: github.com/neerajdhanraj/VedicDateTime\nGetting started Cookbook API (pkgdown)"
   },
   {
     "objectID": "index.html#package-status",
@@ -84,39 +84,25 @@
     "text": "Package status\n\n\n\nCRAN status"
   },
   {
-    "objectID": "index.html#why-vedicdatetime",
-    "href": "index.html#why-vedicdatetime",
+    "objectID": "index.html#what-you-get",
+    "href": "index.html#what-you-get",
     "title": "VedicDateTime",
-    "section": "Why VedicDateTime?",
-    "text": "Why VedicDateTime?\nCalendar systems used around the world can be solar, lunar, or lunisolar, based on movements of the sun, the moon, or both. The Gregorian calendar (solar) is commonly used as a modern time reference for computation.\nThe Vedic calendar is lunisolar. The VedicDateTime paper motivates that a lunisolar calendar can be useful when analyzing activities and time series that may depend on both celestial bodies—especially when studying:\n\ncalendar seasonality (seasonal patterns tied to cultural and astronomical cycles)\nmoving-holiday effects (e.g., festivals whose Gregorian dates shift year to year)\n\nVedicDateTime was designed to make these computations accessible as reliable, reproducible R functions."
+    "section": "What you get",
+    "text": "What you get\n\n\nPanchanga entities\nCompute:\n\ntithi\nvaara\nnakshatra\nyoga\nkarana\n\n\n\nConversions\n\nGregorian → JD (gregorian_to_jd())\nJD → Gregorian (jd_to_gregorian())\n\n\n\nLocation-aware results\nMany computations depend on:\n\nlatitude\nlongitude\ntimezone offset\n\n\n\nTime-series features\nTransform timestamps into Vedic features (tithi/nakshatra/yoga/masa) for modeling pipelines.\n\n\nDocumentation\n\nReference overview\nAPI (pkgdown)\nVignettes"
   },
   {
-    "objectID": "index.html#what-does-the-package-compute-panchanga-and-related-entities",
-    "href": "index.html#what-does-the-package-compute-panchanga-and-related-entities",
+    "objectID": "index.html#quick-start",
+    "href": "index.html#quick-start",
     "title": "VedicDateTime",
-    "section": "What does the package compute? (Panchanga and related entities)",
-    "text": "What does the package compute? (Panchanga and related entities)\nThe paper discusses Panchanga (“five arms”), which consists of:\n\nTithi — a lunar day (related to the lunar phase)\nVaara — weekday\nNakshatra — constellation segment based on the moon’s position\nYoga — derived from sun + moon longitudes\nKarana — half-tithi\n\nIn addition, the package includes related entities and helpers such as rashi, lagna, masa, ritu, samvatsara, sunrise/sunset, moonrise/moonset, solar/lunar longitudes, and conversions between Gregorian dates and Julian day numbers."
+    "section": "Quick start",
+    "text": "Quick start\ninstall.packages(\"VedicDateTime\")\n\nlibrary(VedicDateTime)\nplace &lt;- c(15.34, 75.13, +5.5)\njd &lt;- gregorian_to_jd(8, 9, 2022)\n\ntithi(jd, place)"
   },
   {
-    "objectID": "index.html#quick-examples-from-the-paper",
-    "href": "index.html#quick-examples-from-the-paper",
+    "objectID": "index.html#use-cases",
+    "href": "index.html#use-cases",
     "title": "VedicDateTime",
-    "section": "Quick examples (from the paper)",
-    "text": "Quick examples (from the paper)\nThese examples are shown in the package paper. (This website is configured to display code but not execute it while building pages.)\n\nExample 1: tithi()\n# Julian day number\njd &lt;- 2459778\n\n# Latitude, Longitude, and timezone of the location\nplace &lt;- c(15.34, 75.13, +5.5)\n\ntithi(jd, place)\n#&gt; [1] 20 20 55 35\nInterpretation described in the paper:\n\nthe first number is the tithi index (there are 30 tithis)\nthe remaining numbers represent the ending time as hour minute second\n\n\n\nExample 2: vaara() and names\nvaara(2459778)\n#&gt; [1] 1\n\nget_vaara_name(2459778)\n#&gt; [1] \"Ravivar\"\n\n\nExample 3: nakshatra()\nnakshatra(2459778, c(15.34, 75.13, +5.5))\n#&gt; [1] 25 24 24  1\nThe paper explains this as nakshatra index + ending time."
-  },
-  {
-    "objectID": "index.html#typical-workflow",
-    "href": "index.html#typical-workflow",
-    "title": "VedicDateTime",
-    "section": "Typical workflow",
-    "text": "Typical workflow\nA typical workflow in the paper is:\n\nStart with a Gregorian date-time (or directly a Julian day number)\nChoose a place (latitude, longitude, timezone)\nCompute one or more Panchanga entities\nOptionally map numeric indices to names (e.g., get_vaara_name())\n\nSee Getting started for a step-by-step guide."
-  },
-  {
-    "objectID": "index.html#research-and-applications",
-    "href": "index.html#research-and-applications",
-    "title": "VedicDateTime",
-    "section": "Research and applications",
-    "text": "Research and applications\nThe paper includes two demonstrations showing how VedicDateTime can be used in practice:\n\nSeasonality analysis on India’s Index of Industrial Production (IIP)\nDiwali regressors to model moving-holiday effects pre/post Diwali\n\nSee Tutorials & case studies."
+    "section": "Use cases",
+    "text": "Use cases\n\nCalendar-aware feature engineering for time series\nResearch workflows requiring lunisolar calendar entities\nReproducible calendrical computations for a specified location"
   },
   {
     "objectID": "index.html#citation",
@@ -124,6 +110,13 @@
     "title": "VedicDateTime",
     "section": "Citation",
     "text": "Citation\nIf you use VedicDateTime in academic work, please cite:\n\nBokde, N. D., Patil, P. K., Sengupta, S., Sawant, M., & Feijóo-Lorenzo, A. E. (2023). VedicDateTime: An R package to implement Vedic calendar system. Multimedia Tools and Applications. https://doi.org/10.1007/s11042-023-16553-w"
+  },
+  {
+    "objectID": "index.html#key-links",
+    "href": "index.html#key-links",
+    "title": "VedicDateTime",
+    "section": "Key links",
+    "text": "Key links\n\nGetting started: getting-started.qmd\nCookbook: cookbook.qmd\nAccuracy & conventions: accuracy.qmd\nAPI docs: pkgdown/\nPublication + PDF: publications.qmd"
   },
   {
     "objectID": "faq.html",
@@ -194,6 +187,55 @@
     "title": "FAQ",
     "section": "How accurate are results?",
     "text": "How accurate are results?\nThe package uses well-established astronomical computations and is described in a peer-reviewed paper. For strict reproducibility, always record:\n\npackage version\ntimezone / location\ninput dates and coordinate conventions"
+  },
+  {
+    "objectID": "cookbook.html",
+    "href": "cookbook.html",
+    "title": "Cookbook",
+    "section": "",
+    "text": "This page provides practical recipes for common tasks with VedicDateTime."
+  },
+  {
+    "objectID": "cookbook.html#recipe-1-compute-panchanga-for-a-single-date-and-place",
+    "href": "cookbook.html#recipe-1-compute-panchanga-for-a-single-date-and-place",
+    "title": "Cookbook",
+    "section": "Recipe 1 — Compute Panchanga for a single date and place",
+    "text": "Recipe 1 — Compute Panchanga for a single date and place\nlibrary(VedicDateTime)\n\nplace &lt;- c(15.34, 75.13, +5.5)\njd &lt;- gregorian_to_jd(8, 9, 2022)\n\ntithi(jd, place)\nvaara(jd)\nnakshatra(jd, place)\nyoga(jd, place)\nkarana(jd, place)"
+  },
+  {
+    "objectID": "cookbook.html#recipe-2-add-vedic-features-to-a-data-frame",
+    "href": "cookbook.html#recipe-2-add-vedic-features-to-a-data-frame",
+    "title": "Cookbook",
+    "section": "Recipe 2 — Add Vedic features to a data frame",
+    "text": "Recipe 2 — Add Vedic features to a data frame\nlibrary(VedicDateTime)\n\nplace &lt;- c(15.34, 75.13, +5.5)\n\ndf &lt;- data.frame(\n  dd = c(8, 9, 10),\n  mm = c(9, 9, 9),\n  yyyy = c(2022, 2022, 2022)\n)\n\ndf$jd &lt;- mapply(gregorian_to_jd, df$dd, df$mm, df$yyyy)\n\n# First element is typically the index; outputs may include end-times too\n# (see the function help / pkgdown for details)\n\ndf$tithi &lt;- sapply(df$jd, function(j) tithi(j, place)[1])\n\ndf$vaara &lt;- sapply(df$jd, function(j) vaara(j))\n\ndf$nakshatra &lt;- sapply(df$jd, function(j) nakshatra(j, place)[1])\n\ndf$yoga &lt;- sapply(df$jd, function(j) yoga(j, place)[1])\n\ndf"
+  },
+  {
+    "objectID": "cookbook.html#recipe-3-convert-numeric-indices-to-names",
+    "href": "cookbook.html#recipe-3-convert-numeric-indices-to-names",
+    "title": "Cookbook",
+    "section": "Recipe 3 — Convert numeric indices to names",
+    "text": "Recipe 3 — Convert numeric indices to names\nlibrary(VedicDateTime)\n\njd &lt;- 2459778\nplace &lt;- c(15.34, 75.13, +5.5)\n\nget_vaara_name(jd)\nget_tithi_name(jd, place)\nget_nakshatra_name(jd, place)\nget_yoga_name(jd, place)"
+  },
+  {
+    "objectID": "cookbook.html#recipe-4-sunrisesunset-and-longitudes",
+    "href": "cookbook.html#recipe-4-sunrisesunset-and-longitudes",
+    "title": "Cookbook",
+    "section": "Recipe 4 — Sunrise/sunset and longitudes",
+    "text": "Recipe 4 — Sunrise/sunset and longitudes\nlibrary(VedicDateTime)\n\nplace &lt;- c(15.34, 75.13, +5.5)\njd &lt;- gregorian_to_jd(8, 9, 2022)\n\nsunrise(jd, place)\nsunset(jd, place)\n\nsun_longitude(jd)\nmoon_longitude(jd)\nlunar_phase(jd)"
+  },
+  {
+    "objectID": "cookbook.html#recipe-5-use-vedic-features-in-a-simple-model-template",
+    "href": "cookbook.html#recipe-5-use-vedic-features-in-a-simple-model-template",
+    "title": "Cookbook",
+    "section": "Recipe 5 — Use Vedic features in a simple model (template)",
+    "text": "Recipe 5 — Use Vedic features in a simple model (template)\n# Template only: replace y with your time-series response\n# df$y &lt;- ...\n\n# model &lt;- lm(y ~ factor(tithi) + factor(nakshatra) + factor(vaara), data = df)\n# summary(model)"
+  },
+  {
+    "objectID": "cookbook.html#references",
+    "href": "cookbook.html#references",
+    "title": "Cookbook",
+    "section": "References",
+    "text": "References\n\nPackage (CRAN): cran.r-project.org/package=VedicDateTime\nSource (GitHub): github.com/neerajdhanraj/VedicDateTime\nAPI docs: API (pkgdown)"
   },
   {
     "objectID": "contact.html",
@@ -343,6 +385,55 @@
     "text": "Limitations & future scope (as stated in the paper)\nThe paper notes future improvements such as:\n\nadding visualization capabilities for calendar entities\nadding native R date-time object support (e.g., S4 classes) for Vedic date-time handling"
   },
   {
+    "objectID": "accuracy.html",
+    "href": "accuracy.html",
+    "title": "Accuracy & conventions",
+    "section": "",
+    "text": "This page explains key conventions for using VedicDateTime correctly and reproducibly."
+  },
+  {
+    "objectID": "accuracy.html#location-matters",
+    "href": "accuracy.html#location-matters",
+    "title": "Accuracy & conventions",
+    "section": "Location matters",
+    "text": "Location matters\nMany entities in the Vedic calendar are computed relative to local sunrise and depend on the observer’s location.\nThis is why several functions take a place vector:\nplace &lt;- c(latitude, longitude, timezone_offset)\nTwo different places can yield different values (or different end times) for the same civil date."
+  },
+  {
+    "objectID": "accuracy.html#timezone-convention",
+    "href": "accuracy.html#timezone-convention",
+    "title": "Accuracy & conventions",
+    "section": "Timezone convention",
+    "text": "Timezone convention\nThe examples use a numeric timezone offset (e.g., +5.5). Always keep timezone consistent with the location."
+  },
+  {
+    "objectID": "accuracy.html#julian-day-number-jd",
+    "href": "accuracy.html#julian-day-number-jd",
+    "title": "Accuracy & conventions",
+    "section": "Julian Day Number (JD)",
+    "text": "Julian Day Number (JD)\nMany computations start from a Julian Day Number.\n\nUse gregorian_to_jd(dd, mm, yyyy) when starting from a Gregorian date.\nIf your workflow already uses JD, you can directly call Panchanga functions."
+  },
+  {
+    "objectID": "accuracy.html#interpreting-output-vectors",
+    "href": "accuracy.html#interpreting-output-vectors",
+    "title": "Accuracy & conventions",
+    "section": "Interpreting output vectors",
+    "text": "Interpreting output vectors\nSeveral functions return numeric vectors that include:\n\nan index (which entity)\nan end time represented as hour minute second\n\nExample pattern:\nx &lt;- tithi(jd, place)\n\n# often:\n# x[1] = tithi index\n# x[2:4] = end time (h, m, s)\n\nTimes beyond 24:00\nIf the end time exceeds 24:00, it indicates the entity ends after midnight (i.e., on the next civil day)."
+  },
+  {
+    "objectID": "accuracy.html#reproducibility-checklist",
+    "href": "accuracy.html#reproducibility-checklist",
+    "title": "Accuracy & conventions",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\nFor reproducible results, record:\n\npackage version\ndate/time convention (Gregorian inputs vs JD)\nplace vector used (latitude, longitude, timezone_offset)"
+  },
+  {
+    "objectID": "accuracy.html#accuracy-and-validation",
+    "href": "accuracy.html#accuracy-and-validation",
+    "title": "Accuracy & conventions",
+    "section": "Accuracy and validation",
+    "text": "Accuracy and validation\nVedicDateTime uses established astronomical computations (via dependencies such as Swiss Ephemeris bindings). For detailed algorithm and background, see:\n\nAPI docs: API (pkgdown)\nCRAN: cran.r-project.org/package=VedicDateTime"
+  },
+  {
     "objectID": "changelog.html",
     "href": "changelog.html",
     "title": "Changelog",
@@ -378,11 +469,18 @@
     "text": "Ways to contribute\n\nBug reports with reproducible examples\nDocumentation improvements (website, vignettes, function examples)\nTests (edge cases, regression tests)\nPerformance improvements (vectorization, caching)\nNew calendar entities / helpers"
   },
   {
+    "objectID": "contributing.html#good-first-contributions",
+    "href": "contributing.html#good-first-contributions",
+    "title": "Contributing",
+    "section": "Good first contributions",
+    "text": "Good first contributions\n\nDocumentation improvements (examples, website pages, vignettes)\nTests for edge cases (skipped entities, midnight-crossing end times)\nPerformance improvements for batch conversions\n\nA good place to start is GitHub Issues:\n\nIssues"
+  },
+  {
     "objectID": "contributing.html#reporting-a-bug-checklist",
     "href": "contributing.html#reporting-a-bug-checklist",
     "title": "Contributing",
     "section": "Reporting a bug (checklist)",
-    "text": "Reporting a bug (checklist)\nPlease include:\n\nWhat you expected to happen\nWhat actually happened\nA minimal reproducible example (code + inputs)\nPlace inputs: latitude, longitude, timezone offset\nOutput of sessionInfo()"
+    "text": "Reporting a bug (checklist)\nPlease include:\n\nWhat you expected to happen\nWhat actually happened\nA minimal reproducible example (code + inputs)\nPlace inputs: latitude, longitude, timezone offset\nOutput of sessionInfo()\n\nBug report template snippet:\nDate(s):\nPlace: c(lat, lon, tz_offset)\nFunction call:\nExpected:\nActual:\nR sessionInfo():"
   },
   {
     "objectID": "contributing.html#development-setup",
@@ -418,6 +516,83 @@
     "title": "Contributing",
     "section": "Funding acknowledgement",
     "text": "Funding acknowledgement\nEarly development of this package was funded through Google Summer of Code (GSoC) in multiple years."
+  },
+  {
+    "objectID": "development.html",
+    "href": "development.html",
+    "title": "Development",
+    "section": "",
+    "text": "This page documents common development workflows for VedicDateTime."
+  },
+  {
+    "objectID": "development.html#repository",
+    "href": "development.html#repository",
+    "title": "Development",
+    "section": "Repository",
+    "text": "Repository\n\nSource: github.com/neerajdhanraj/VedicDateTime\nIssues: github.com/neerajdhanraj/VedicDateTime/issues"
+  },
+  {
+    "objectID": "development.html#github-actions",
+    "href": "development.html#github-actions",
+    "title": "Development",
+    "section": "GitHub Actions",
+    "text": "GitHub Actions\nThe repository uses GitHub Actions for checks and for building the website (Quarto) and API docs (pkgdown)."
+  },
+  {
+    "objectID": "development.html#install-development-dependencies",
+    "href": "development.html#install-development-dependencies",
+    "title": "Development",
+    "section": "Install development dependencies",
+    "text": "Install development dependencies\ninstall.packages(c(\"devtools\", \"testthat\", \"roxygen2\"))"
+  },
+  {
+    "objectID": "development.html#install-from-source",
+    "href": "development.html#install-from-source",
+    "title": "Development",
+    "section": "Install from source",
+    "text": "Install from source\nFrom the repository root:\ndevtools::install()"
+  },
+  {
+    "objectID": "development.html#run-tests",
+    "href": "development.html#run-tests",
+    "title": "Development",
+    "section": "Run tests",
+    "text": "Run tests\ndevtools::test()"
+  },
+  {
+    "objectID": "development.html#run-checks",
+    "href": "development.html#run-checks",
+    "title": "Development",
+    "section": "Run checks",
+    "text": "Run checks\ndevtools::check(build_args = c(\"--compact-vignettes=gs+qpdf\"))"
+  },
+  {
+    "objectID": "development.html#build",
+    "href": "development.html#build",
+    "title": "Development",
+    "section": "Build",
+    "text": "Build\ndevtools::build(args = c(\"--compact-vignettes=gs+qpdf\"))"
+  },
+  {
+    "objectID": "development.html#cran-style-checks-rhub",
+    "href": "development.html#cran-style-checks-rhub",
+    "title": "Development",
+    "section": "CRAN-style checks (rhub)",
+    "text": "CRAN-style checks (rhub)\n# install.packages(\"rhub\")\nrhub::check_for_cran(check_args = c(\"--compact-vignettes=gs+qpdf\"))"
+  },
+  {
+    "objectID": "development.html#documentation",
+    "href": "development.html#documentation",
+    "title": "Development",
+    "section": "Documentation",
+    "text": "Documentation\n\nFunction documentation is generated from roxygen comments and appears under man/.\nThe website API reference is generated using pkgdown.\n\nBuild pkgdown locally:\ninstall.packages(\"pkgdown\")\npkgdown::build_site(dest_dir = \"docs/pkgdown\", preview = FALSE)"
+  },
+  {
+    "objectID": "development.html#website",
+    "href": "development.html#website",
+    "title": "Development",
+    "section": "Website",
+    "text": "Website\nThe website source lives in site/ and is built with Quarto.\nRender locally:\nquarto render site"
   },
   {
     "objectID": "getting-started.html",

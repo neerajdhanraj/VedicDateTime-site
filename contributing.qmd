@@ -17,6 +17,16 @@ Contributions are welcome from R users, developers, and researchers.
 - Performance improvements (vectorization, caching)
 - New calendar entities / helpers
 
+## Good first contributions
+
+- Documentation improvements (examples, website pages, vignettes)
+- Tests for edge cases (skipped entities, midnight-crossing end times)
+- Performance improvements for batch conversions
+
+A good place to start is GitHub Issues:
+
+- [Issues](https://github.com/neerajdhanraj/VedicDateTime/issues)
+
 ## Reporting a bug (checklist)
 
 Please include:
@@ -26,6 +36,17 @@ Please include:
 3. A minimal reproducible example (code + inputs)
 4. Place inputs: latitude, longitude, timezone offset
 5. Output of `sessionInfo()`
+
+Bug report template snippet:
+
+```text
+Date(s):
+Place: c(lat, lon, tz_offset)
+Function call:
+Expected:
+Actual:
+R sessionInfo():
+```
 
 ## Development setup
 

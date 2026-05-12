@@ -5,7 +5,7 @@ project:
 website:
   title: "VedicDateTime"
   description: "An R package to implement the Vedic (lunisolar) calendar system and convert Gregorian/Julian dates to Vedic calendar entities (Panchanga)."
-  site-url: "https://neerajdhanraj.github.io/VedicDateTime/"  # GitHub Pages URL (set custom domain later)
+  site-url: "https://neerajdhanraj.github.io/VedicDateTime/"  # GitHub Pages URL
   repo-url: "https://github.com/neerajdhanraj/VedicDateTime"
   repo-actions: [issue]
   favicon: "assets/VedicDateTimeLOGO2.png"
@@ -15,24 +15,38 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: getting-started.qmd
-        text: Getting started
-      - href: reference.qmd
-        text: Reference
-      - href: pkgdown/
-        text: API (pkgdown)
-      - href: articles.qmd
-        text: Tutorials & case studies
-      - href: publications.qmd
-        text: Publication
+      - text: Docs
+        menu:
+          - href: getting-started.qmd
+            text: Getting started
+          - href: cookbook.qmd
+            text: Cookbook
+          - href: accuracy.qmd
+            text: Accuracy & conventions
+          - href: reference.qmd
+            text: Reference (overview)
+          - href: pkgdown/
+            text: API (pkgdown)
+          - href: articles.qmd
+            text: Tutorials & case studies
       - href: roadmap.qmd
         text: Roadmap & AI
-      - href: faq.qmd
-        text: FAQ
-      - href: contributing.qmd
-        text: Contributing
-      - href: contact.qmd
-        text: Contact
+      - text: More
+        menu:
+          - href: publications.qmd
+            text: Publication
+          - href: contributing.qmd
+            text: Contributing
+          - href: development.qmd
+            text: Development
+          - href: faq.qmd
+            text: FAQ
+          - href: about.qmd
+            text: About
+          - href: changelog.qmd
+            text: Changelog
+          - href: contact.qmd
+            text: Contact
     right:
       - text: CRAN
         href: "https://cran.r-project.org/package=VedicDateTime"
@@ -46,8 +60,8 @@ website:
         href: "https://cran.r-project.org/package=VedicDateTime"
       - text: "GitHub"
         href: "https://github.com/neerajdhanraj/VedicDateTime"
-      - text: "Publication"
-        href: publications.qmd
+      - text: "Contact"
+        href: contact.qmd
 
 format:
   html:

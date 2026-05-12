@@ -34,5 +34,14 @@
   },
   "roadmap.qmd": {
     "roadmap.html": "1d0903e6"
+  },
+  "accuracy.qmd": {
+    "accuracy.html": "c2d062b5"
+  },
+  "cookbook.qmd": {
+    "cookbook.html": "6256d691"
+  },
+  "development.qmd": {
+    "development.html": "f5d0aeda"
   }
 }

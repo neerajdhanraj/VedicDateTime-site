@@ -1,14 +1,19 @@
 /* VedicDateTime website custom styling */
 
+:root {
+  --vdt-border: rgba(0,0,0,0.08);
+  --vdt-soft: rgba(13,110,253,0.04);
+}
+
 /* Layout helpers */
 .hero {
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 1rem;
   padding: 1.25rem;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid var(--vdt-border);
   border-radius: 0.9rem;
-  background: rgba(13,110,253,0.04);
+  background: var(--vdt-soft);
   margin-bottom: 1.5rem;
 }
 
@@ -25,10 +30,6 @@
   font-size: 1.1rem;
 }
 
-.callout-note {
-  border-left: 0.35rem solid rgba(13,110,253,0.75);
-}
-
 /* Card grid */
 .cards {
   display: grid;
@@ -38,7 +39,7 @@
 }
 
 .card {
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid var(--vdt-border);
   border-radius: 0.75rem;
   padding: 1rem;
   background: #fff;
@@ -46,6 +47,24 @@
 
 .card h3 {
   margin-top: 0;
+}
+
+/* Callouts */
+.callout {
+  border: 1px solid var(--vdt-border);
+  border-radius: 0.75rem;
+}
+
+.callout-tip {
+  border-left: 0.35rem solid rgba(25,135,84,0.75);
+}
+
+.callout-warning {
+  border-left: 0.35rem solid rgba(255,193,7,0.9);
+}
+
+.callout-note {
+  border-left: 0.35rem solid rgba(13,110,253,0.75);
 }
 
 .small {

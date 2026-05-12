@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – VedicDateTime</title>
+<title>Development – VedicDateTime</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -198,15 +233,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vedicdatetime" id="toc-vedicdatetime" class="nav-link active" data-scroll-target="#vedicdatetime">VedicDateTime</a></li>
-  <li><a href="#authors-paper" id="toc-authors-paper" class="nav-link" data-scroll-target="#authors-paper">Authors (paper)</a></li>
-  <li><a href="#maintainer" id="toc-maintainer" class="nav-link" data-scroll-target="#maintainer">Maintainer</a></li>
-  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
-  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
-  <li><a href="#implementation-notes-paper-summary" id="toc-implementation-notes-paper-summary" class="nav-link" data-scroll-target="#implementation-notes-paper-summary">Implementation notes (paper summary)</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#funding-acknowledgement" id="toc-funding-acknowledgement" class="nav-link" data-scroll-target="#funding-acknowledgement">Funding acknowledgement</a></li>
-  <li><a href="#limitations-future-scope-as-stated-in-the-paper" id="toc-limitations-future-scope-as-stated-in-the-paper" class="nav-link" data-scroll-target="#limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</a></li>
+  <li><a href="#repository" id="toc-repository" class="nav-link active" data-scroll-target="#repository">Repository</a></li>
+  <li><a href="#github-actions" id="toc-github-actions" class="nav-link" data-scroll-target="#github-actions">GitHub Actions</a></li>
+  <li><a href="#install-development-dependencies" id="toc-install-development-dependencies" class="nav-link" data-scroll-target="#install-development-dependencies">Install development dependencies</a></li>
+  <li><a href="#install-from-source" id="toc-install-from-source" class="nav-link" data-scroll-target="#install-from-source">Install from source</a></li>
+  <li><a href="#run-tests" id="toc-run-tests" class="nav-link" data-scroll-target="#run-tests">Run tests</a></li>
+  <li><a href="#run-checks" id="toc-run-checks" class="nav-link" data-scroll-target="#run-checks">Run checks</a></li>
+  <li><a href="#build" id="toc-build" class="nav-link" data-scroll-target="#build">Build</a></li>
+  <li><a href="#cran-style-checks-rhub" id="toc-cran-style-checks-rhub" class="nav-link" data-scroll-target="#cran-style-checks-rhub">CRAN-style checks (rhub)</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
+  <li><a href="#website" id="toc-website" class="nav-link" data-scroll-target="#website">Website</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -215,7 +251,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Development</h1>
 </div>
 
 
@@ -232,83 +268,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="vedicdatetime" class="level2">
-<h2 class="anchored" data-anchor-id="vedicdatetime">VedicDateTime</h2>
-<p><strong>VedicDateTime</strong> is an R package for computing entities from the <strong>Vedic (lunisolar) calendar system</strong> and converting between <strong>Gregorian</strong> time (or <strong>Julian Day Numbers</strong>) and Vedic calendar entities.</p>
+<p>This page documents common development workflows for <strong>VedicDateTime</strong>.</p>
+<section id="repository" class="level2">
+<h2 class="anchored" data-anchor-id="repository">Repository</h2>
 <ul>
-<li>CRAN: <a href="https://cran.r-project.org/package=VedicDateTime">cran.r-project.org/package=VedicDateTime</a></li>
-<li>GitHub: <a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
-<li>Paper (open access): <a href="https://doi.org/10.1007/s11042-023-16553-w">doi.org/10.1007/s11042-023-16553-w</a></li>
+<li>Source: <a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
+<li>Issues: <a href="https://github.com/neerajdhanraj/VedicDateTime/issues">github.com/neerajdhanraj/VedicDateTime/issues</a></li>
 </ul>
 </section>
-<section id="authors-paper" class="level2">
-<h2 class="anchored" data-anchor-id="authors-paper">Authors (paper)</h2>
-<p>The package is described in the peer‑reviewed paper authored by:</p>
-<ul>
-<li>Neeraj Dhanraj Bokde</li>
-<li>Prajwal Kailasnath Patil</li>
-<li>Saradindu Sengupta</li>
-<li>Manisha Sawant</li>
-<li>Andrés E. Feijóo‑Lorenzo</li>
-</ul>
+<section id="github-actions" class="level2">
+<h2 class="anchored" data-anchor-id="github-actions">GitHub Actions</h2>
+<p>The repository uses GitHub Actions for checks and for building the website (Quarto) and API docs (pkgdown).</p>
 </section>
-<section id="maintainer" class="level2">
-<h2 class="anchored" data-anchor-id="maintainer">Maintainer</h2>
-<ul>
-<li><strong>Neeraj Dhanraj Bokde</strong> (Maintainer)</li>
-<li>Email: <a href="mailto:neerajdhanraj@gmail.com">neerajdhanraj@gmail.com</a></li>
-</ul>
+<section id="install-development-dependencies" class="level2">
+<h2 class="anchored" data-anchor-id="install-development-dependencies">Install development dependencies</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>, <span class="st">"testthat"</span>, <span class="st">"roxygen2"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="contributors" class="level2">
-<h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
-<p>Additional contributions are tracked in the GitHub repository:</p>
-<ul>
-<li><a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
-</ul>
+<section id="install-from-source" class="level2">
+<h2 class="anchored" data-anchor-id="install-from-source">Install from source</h2>
+<p>From the repository root:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="scope" class="level2">
-<h2 class="anchored" data-anchor-id="scope">Scope</h2>
-<p>VedicDateTime implements the five key Panchanga entities:</p>
-<ul>
-<li><strong>tithi</strong></li>
-<li><strong>vaara</strong></li>
-<li><strong>nakshatra</strong></li>
-<li><strong>yoga</strong></li>
-<li><strong>karana</strong></li>
-</ul>
-<p>It also provides supporting functions for related entities and astronomical calculations, including:</p>
-<ul>
-<li>sunrise/sunset, moonrise/moonset</li>
-<li>solar/lunar longitudes</li>
-<li>rashi, lagna, masa, ritu, samvatsara</li>
-<li>Gregorian ↔︎ Julian day conversions</li>
-</ul>
+<section id="run-tests" class="level2">
+<h2 class="anchored" data-anchor-id="run-tests">Run tests</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="implementation-notes-paper-summary" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-notes-paper-summary">Implementation notes (paper summary)</h2>
-<p>The paper describes algorithmic design choices including:</p>
+<section id="run-checks" class="level2">
+<h2 class="anchored" data-anchor-id="run-checks">Run checks</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>(<span class="at">build_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="build" class="level2">
+<h2 class="anchored" data-anchor-id="build">Build</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="cran-style-checks-rhub" class="level2">
+<h2 class="anchored" data-anchor-id="cran-style-checks-rhub">CRAN-style checks (rhub)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("rhub")</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>rhub<span class="sc">::</span><span class="fu">check_for_cran</span>(<span class="at">check_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
 <ul>
-<li>computations anchored to <strong>local sunrise</strong> (location-dependent)</li>
-<li><strong>Lahiri Ayanamsa</strong> for sidereal corrections</li>
-<li>use of <strong>Swiss Ephemeris</strong> (via R dependencies) for astronomical computations</li>
-<li><strong>inverse Lagrange interpolation</strong> (with 0.25-day offsets) to compute end times</li>
+<li>Function documentation is generated from roxygen comments and appears under <code>man/</code>.</li>
+<li>The website API reference is generated using <strong>pkgdown</strong>.</li>
 </ul>
+<p>Build pkgdown locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pkgdown"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pkgdown<span class="sc">::</span><span class="fu">build_site</span>(<span class="at">dest_dir =</span> <span class="st">"docs/pkgdown"</span>, <span class="at">preview =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>VedicDateTime is distributed under <strong>GPL-3</strong>.</p>
-</section>
-<section id="funding-acknowledgement" class="level2">
-<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
-<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
-</section>
-<section id="limitations-future-scope-as-stated-in-the-paper" class="level2">
-<h2 class="anchored" data-anchor-id="limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</h2>
-<p>The paper notes future improvements such as:</p>
-<ul>
-<li>adding visualization capabilities for calendar entities</li>
-<li>adding native R date-time object support (e.g., S4 classes) for Vedic date-time handling</li>
-</ul>
+<section id="website" class="level2">
+<h2 class="anchored" data-anchor-id="website">Website</h2>
+<p>The website source lives in <code>site/</code> and is built with Quarto.</p>
+<p>Render locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render site</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

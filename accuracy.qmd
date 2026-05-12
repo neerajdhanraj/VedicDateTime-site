@@ -1,0 +1,64 @@
+---
+title: "Accuracy & conventions"
+---
+
+This page explains key conventions for using **VedicDateTime** correctly and reproducibly.
+
+## Location matters
+
+Many entities in the Vedic calendar are computed relative to **local sunrise** and depend on the observer’s location.
+
+This is why several functions take a `place` vector:
+
+```r
+place <- c(latitude, longitude, timezone_offset)
+```
+
+Two different places can yield different values (or different end times) for the same civil date.
+
+## Timezone convention
+
+The examples use a numeric timezone offset (e.g., `+5.5`). Always keep timezone consistent with the location.
+
+## Julian Day Number (JD)
+
+Many computations start from a **Julian Day Number**.
+
+- Use `gregorian_to_jd(dd, mm, yyyy)` when starting from a Gregorian date.
+- If your workflow already uses JD, you can directly call Panchanga functions.
+
+## Interpreting output vectors
+
+Several functions return numeric vectors that include:
+
+- an **index** (which entity)
+- an **end time** represented as `hour minute second`
+
+Example pattern:
+
+```r
+x <- tithi(jd, place)
+
+# often:
+# x[1] = tithi index
+# x[2:4] = end time (h, m, s)
+```
+
+### Times beyond 24:00
+
+If the end time exceeds `24:00`, it indicates the entity ends **after midnight** (i.e., on the next civil day).
+
+## Reproducibility checklist
+
+For reproducible results, record:
+
+- package version
+- date/time convention (Gregorian inputs vs JD)
+- place vector used (`latitude`, `longitude`, `timezone_offset`)
+
+## Accuracy and validation
+
+VedicDateTime uses established astronomical computations (via dependencies such as Swiss Ephemeris bindings). For detailed algorithm and background, see:
+
+- API docs: [API (pkgdown)](pkgdown/index.html)
+- CRAN: [cran.r-project.org/package=VedicDateTime](https://cran.r-project.org/package=VedicDateTime)

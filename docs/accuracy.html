@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – VedicDateTime</title>
+<title>Accuracy &amp; conventions – VedicDateTime</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -198,15 +233,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vedicdatetime" id="toc-vedicdatetime" class="nav-link active" data-scroll-target="#vedicdatetime">VedicDateTime</a></li>
-  <li><a href="#authors-paper" id="toc-authors-paper" class="nav-link" data-scroll-target="#authors-paper">Authors (paper)</a></li>
-  <li><a href="#maintainer" id="toc-maintainer" class="nav-link" data-scroll-target="#maintainer">Maintainer</a></li>
-  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
-  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
-  <li><a href="#implementation-notes-paper-summary" id="toc-implementation-notes-paper-summary" class="nav-link" data-scroll-target="#implementation-notes-paper-summary">Implementation notes (paper summary)</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#funding-acknowledgement" id="toc-funding-acknowledgement" class="nav-link" data-scroll-target="#funding-acknowledgement">Funding acknowledgement</a></li>
-  <li><a href="#limitations-future-scope-as-stated-in-the-paper" id="toc-limitations-future-scope-as-stated-in-the-paper" class="nav-link" data-scroll-target="#limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</a></li>
+  <li><a href="#location-matters" id="toc-location-matters" class="nav-link active" data-scroll-target="#location-matters">Location matters</a></li>
+  <li><a href="#timezone-convention" id="toc-timezone-convention" class="nav-link" data-scroll-target="#timezone-convention">Timezone convention</a></li>
+  <li><a href="#julian-day-number-jd" id="toc-julian-day-number-jd" class="nav-link" data-scroll-target="#julian-day-number-jd">Julian Day Number (JD)</a></li>
+  <li><a href="#interpreting-output-vectors" id="toc-interpreting-output-vectors" class="nav-link" data-scroll-target="#interpreting-output-vectors">Interpreting output vectors</a>
+  <ul class="collapse">
+  <li><a href="#times-beyond-2400" id="toc-times-beyond-2400" class="nav-link" data-scroll-target="#times-beyond-2400">Times beyond 24:00</a></li>
+  </ul></li>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist">Reproducibility checklist</a></li>
+  <li><a href="#accuracy-and-validation" id="toc-accuracy-and-validation" class="nav-link" data-scroll-target="#accuracy-and-validation">Accuracy and validation</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -215,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Accuracy &amp; conventions</h1>
 </div>
 
 
@@ -232,82 +267,59 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="vedicdatetime" class="level2">
-<h2 class="anchored" data-anchor-id="vedicdatetime">VedicDateTime</h2>
-<p><strong>VedicDateTime</strong> is an R package for computing entities from the <strong>Vedic (lunisolar) calendar system</strong> and converting between <strong>Gregorian</strong> time (or <strong>Julian Day Numbers</strong>) and Vedic calendar entities.</p>
+<p>This page explains key conventions for using <strong>VedicDateTime</strong> correctly and reproducibly.</p>
+<section id="location-matters" class="level2">
+<h2 class="anchored" data-anchor-id="location-matters">Location matters</h2>
+<p>Many entities in the Vedic calendar are computed relative to <strong>local sunrise</strong> and depend on the observer’s location.</p>
+<p>This is why several functions take a <code>place</code> vector:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(latitude, longitude, timezone_offset)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Two different places can yield different values (or different end times) for the same civil date.</p>
+</section>
+<section id="timezone-convention" class="level2">
+<h2 class="anchored" data-anchor-id="timezone-convention">Timezone convention</h2>
+<p>The examples use a numeric timezone offset (e.g., <code>+5.5</code>). Always keep timezone consistent with the location.</p>
+</section>
+<section id="julian-day-number-jd" class="level2">
+<h2 class="anchored" data-anchor-id="julian-day-number-jd">Julian Day Number (JD)</h2>
+<p>Many computations start from a <strong>Julian Day Number</strong>.</p>
 <ul>
+<li>Use <code>gregorian_to_jd(dd, mm, yyyy)</code> when starting from a Gregorian date.</li>
+<li>If your workflow already uses JD, you can directly call Panchanga functions.</li>
+</ul>
+</section>
+<section id="interpreting-output-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-output-vectors">Interpreting output vectors</h2>
+<p>Several functions return numeric vectors that include:</p>
+<ul>
+<li>an <strong>index</strong> (which entity)</li>
+<li>an <strong>end time</strong> represented as <code>hour minute second</code></li>
+</ul>
+<p>Example pattern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tithi</span>(jd, place)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># often:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># x[1] = tithi index</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># x[2:4] = end time (h, m, s)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="times-beyond-2400" class="level3">
+<h3 class="anchored" data-anchor-id="times-beyond-2400">Times beyond 24:00</h3>
+<p>If the end time exceeds <code>24:00</code>, it indicates the entity ends <strong>after midnight</strong> (i.e., on the next civil day).</p>
+</section>
+</section>
+<section id="reproducibility-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-checklist">Reproducibility checklist</h2>
+<p>For reproducible results, record:</p>
+<ul>
+<li>package version</li>
+<li>date/time convention (Gregorian inputs vs JD)</li>
+<li>place vector used (<code>latitude</code>, <code>longitude</code>, <code>timezone_offset</code>)</li>
+</ul>
+</section>
+<section id="accuracy-and-validation" class="level2">
+<h2 class="anchored" data-anchor-id="accuracy-and-validation">Accuracy and validation</h2>
+<p>VedicDateTime uses established astronomical computations (via dependencies such as Swiss Ephemeris bindings). For detailed algorithm and background, see:</p>
+<ul>
+<li>API docs: <a href="pkgdown/index.html">API (pkgdown)</a></li>
 <li>CRAN: <a href="https://cran.r-project.org/package=VedicDateTime">cran.r-project.org/package=VedicDateTime</a></li>
-<li>GitHub: <a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
-<li>Paper (open access): <a href="https://doi.org/10.1007/s11042-023-16553-w">doi.org/10.1007/s11042-023-16553-w</a></li>
-</ul>
-</section>
-<section id="authors-paper" class="level2">
-<h2 class="anchored" data-anchor-id="authors-paper">Authors (paper)</h2>
-<p>The package is described in the peer‑reviewed paper authored by:</p>
-<ul>
-<li>Neeraj Dhanraj Bokde</li>
-<li>Prajwal Kailasnath Patil</li>
-<li>Saradindu Sengupta</li>
-<li>Manisha Sawant</li>
-<li>Andrés E. Feijóo‑Lorenzo</li>
-</ul>
-</section>
-<section id="maintainer" class="level2">
-<h2 class="anchored" data-anchor-id="maintainer">Maintainer</h2>
-<ul>
-<li><strong>Neeraj Dhanraj Bokde</strong> (Maintainer)</li>
-<li>Email: <a href="mailto:neerajdhanraj@gmail.com">neerajdhanraj@gmail.com</a></li>
-</ul>
-</section>
-<section id="contributors" class="level2">
-<h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
-<p>Additional contributions are tracked in the GitHub repository:</p>
-<ul>
-<li><a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
-</ul>
-</section>
-<section id="scope" class="level2">
-<h2 class="anchored" data-anchor-id="scope">Scope</h2>
-<p>VedicDateTime implements the five key Panchanga entities:</p>
-<ul>
-<li><strong>tithi</strong></li>
-<li><strong>vaara</strong></li>
-<li><strong>nakshatra</strong></li>
-<li><strong>yoga</strong></li>
-<li><strong>karana</strong></li>
-</ul>
-<p>It also provides supporting functions for related entities and astronomical calculations, including:</p>
-<ul>
-<li>sunrise/sunset, moonrise/moonset</li>
-<li>solar/lunar longitudes</li>
-<li>rashi, lagna, masa, ritu, samvatsara</li>
-<li>Gregorian ↔︎ Julian day conversions</li>
-</ul>
-</section>
-<section id="implementation-notes-paper-summary" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-notes-paper-summary">Implementation notes (paper summary)</h2>
-<p>The paper describes algorithmic design choices including:</p>
-<ul>
-<li>computations anchored to <strong>local sunrise</strong> (location-dependent)</li>
-<li><strong>Lahiri Ayanamsa</strong> for sidereal corrections</li>
-<li>use of <strong>Swiss Ephemeris</strong> (via R dependencies) for astronomical computations</li>
-<li><strong>inverse Lagrange interpolation</strong> (with 0.25-day offsets) to compute end times</li>
-</ul>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>VedicDateTime is distributed under <strong>GPL-3</strong>.</p>
-</section>
-<section id="funding-acknowledgement" class="level2">
-<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
-<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
-</section>
-<section id="limitations-future-scope-as-stated-in-the-paper" class="level2">
-<h2 class="anchored" data-anchor-id="limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</h2>
-<p>The paper notes future improvements such as:</p>
-<ul>
-<li>adding visualization capabilities for calendar entities</li>
-<li>adding native R date-time object support (e.g., S4 classes) for Vedic date-time handling</li>
 </ul>
 
 

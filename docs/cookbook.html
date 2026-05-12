@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – VedicDateTime</title>
+<title>Cookbook – VedicDateTime</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -198,15 +233,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vedicdatetime" id="toc-vedicdatetime" class="nav-link active" data-scroll-target="#vedicdatetime">VedicDateTime</a></li>
-  <li><a href="#authors-paper" id="toc-authors-paper" class="nav-link" data-scroll-target="#authors-paper">Authors (paper)</a></li>
-  <li><a href="#maintainer" id="toc-maintainer" class="nav-link" data-scroll-target="#maintainer">Maintainer</a></li>
-  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
-  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
-  <li><a href="#implementation-notes-paper-summary" id="toc-implementation-notes-paper-summary" class="nav-link" data-scroll-target="#implementation-notes-paper-summary">Implementation notes (paper summary)</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  <li><a href="#funding-acknowledgement" id="toc-funding-acknowledgement" class="nav-link" data-scroll-target="#funding-acknowledgement">Funding acknowledgement</a></li>
-  <li><a href="#limitations-future-scope-as-stated-in-the-paper" id="toc-limitations-future-scope-as-stated-in-the-paper" class="nav-link" data-scroll-target="#limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</a></li>
+  <li><a href="#recipe-1-compute-panchanga-for-a-single-date-and-place" id="toc-recipe-1-compute-panchanga-for-a-single-date-and-place" class="nav-link active" data-scroll-target="#recipe-1-compute-panchanga-for-a-single-date-and-place">Recipe 1 — Compute Panchanga for a single date and place</a></li>
+  <li><a href="#recipe-2-add-vedic-features-to-a-data-frame" id="toc-recipe-2-add-vedic-features-to-a-data-frame" class="nav-link" data-scroll-target="#recipe-2-add-vedic-features-to-a-data-frame">Recipe 2 — Add Vedic features to a data frame</a></li>
+  <li><a href="#recipe-3-convert-numeric-indices-to-names" id="toc-recipe-3-convert-numeric-indices-to-names" class="nav-link" data-scroll-target="#recipe-3-convert-numeric-indices-to-names">Recipe 3 — Convert numeric indices to names</a></li>
+  <li><a href="#recipe-4-sunrisesunset-and-longitudes" id="toc-recipe-4-sunrisesunset-and-longitudes" class="nav-link" data-scroll-target="#recipe-4-sunrisesunset-and-longitudes">Recipe 4 — Sunrise/sunset and longitudes</a></li>
+  <li><a href="#recipe-5-use-vedic-features-in-a-simple-model-template" id="toc-recipe-5-use-vedic-features-in-a-simple-model-template" class="nav-link" data-scroll-target="#recipe-5-use-vedic-features-in-a-simple-model-template">Recipe 5 — Use Vedic features in a simple model (template)</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -215,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Cookbook</h1>
 </div>
 
 
@@ -232,82 +264,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="vedicdatetime" class="level2">
-<h2 class="anchored" data-anchor-id="vedicdatetime">VedicDateTime</h2>
-<p><strong>VedicDateTime</strong> is an R package for computing entities from the <strong>Vedic (lunisolar) calendar system</strong> and converting between <strong>Gregorian</strong> time (or <strong>Julian Day Numbers</strong>) and Vedic calendar entities.</p>
-<ul>
-<li>CRAN: <a href="https://cran.r-project.org/package=VedicDateTime">cran.r-project.org/package=VedicDateTime</a></li>
-<li>GitHub: <a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
-<li>Paper (open access): <a href="https://doi.org/10.1007/s11042-023-16553-w">doi.org/10.1007/s11042-023-16553-w</a></li>
-</ul>
+<p>This page provides practical recipes for common tasks with <strong>VedicDateTime</strong>.</p>
+<section id="recipe-1-compute-panchanga-for-a-single-date-and-place" class="level2">
+<h2 class="anchored" data-anchor-id="recipe-1-compute-panchanga-for-a-single-date-and-place">Recipe 1 — Compute Panchanga for a single date and place</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VedicDateTime)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="fu">gregorian_to_jd</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">2022</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tithi</span>(jd, place)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">vaara</span>(jd)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">nakshatra</span>(jd, place)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">yoga</span>(jd, place)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">karana</span>(jd, place)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="authors-paper" class="level2">
-<h2 class="anchored" data-anchor-id="authors-paper">Authors (paper)</h2>
-<p>The package is described in the peer‑reviewed paper authored by:</p>
-<ul>
-<li>Neeraj Dhanraj Bokde</li>
-<li>Prajwal Kailasnath Patil</li>
-<li>Saradindu Sengupta</li>
-<li>Manisha Sawant</li>
-<li>Andrés E. Feijóo‑Lorenzo</li>
-</ul>
+<section id="recipe-2-add-vedic-features-to-a-data-frame" class="level2">
+<h2 class="anchored" data-anchor-id="recipe-2-add-vedic-features-to-a-data-frame">Recipe 2 — Add Vedic features to a data frame</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VedicDateTime)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">dd =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">mm =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">9</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">yyyy =</span> <span class="fu">c</span>(<span class="dv">2022</span>, <span class="dv">2022</span>, <span class="dv">2022</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>jd <span class="ot">&lt;-</span> <span class="fu">mapply</span>(gregorian_to_jd, df<span class="sc">$</span>dd, df<span class="sc">$</span>mm, df<span class="sc">$</span>yyyy)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># First element is typically the index; outputs may include end-times too</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (see the function help / pkgdown for details)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>tithi <span class="ot">&lt;-</span> <span class="fu">sapply</span>(df<span class="sc">$</span>jd, <span class="cf">function</span>(j) <span class="fu">tithi</span>(j, place)[<span class="dv">1</span>])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>vaara <span class="ot">&lt;-</span> <span class="fu">sapply</span>(df<span class="sc">$</span>jd, <span class="cf">function</span>(j) <span class="fu">vaara</span>(j))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>nakshatra <span class="ot">&lt;-</span> <span class="fu">sapply</span>(df<span class="sc">$</span>jd, <span class="cf">function</span>(j) <span class="fu">nakshatra</span>(j, place)[<span class="dv">1</span>])</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>yoga <span class="ot">&lt;-</span> <span class="fu">sapply</span>(df<span class="sc">$</span>jd, <span class="cf">function</span>(j) <span class="fu">yoga</span>(j, place)[<span class="dv">1</span>])</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="maintainer" class="level2">
-<h2 class="anchored" data-anchor-id="maintainer">Maintainer</h2>
-<ul>
-<li><strong>Neeraj Dhanraj Bokde</strong> (Maintainer)</li>
-<li>Email: <a href="mailto:neerajdhanraj@gmail.com">neerajdhanraj@gmail.com</a></li>
-</ul>
+<section id="recipe-3-convert-numeric-indices-to-names" class="level2">
+<h2 class="anchored" data-anchor-id="recipe-3-convert-numeric-indices-to-names">Recipe 3 — Convert numeric indices to names</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VedicDateTime)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="dv">2459778</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">get_vaara_name</span>(jd)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">get_tithi_name</span>(jd, place)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">get_nakshatra_name</span>(jd, place)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">get_yoga_name</span>(jd, place)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="contributors" class="level2">
-<h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
-<p>Additional contributions are tracked in the GitHub repository:</p>
-<ul>
-<li><a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
-</ul>
+<section id="recipe-4-sunrisesunset-and-longitudes" class="level2">
+<h2 class="anchored" data-anchor-id="recipe-4-sunrisesunset-and-longitudes">Recipe 4 — Sunrise/sunset and longitudes</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VedicDateTime)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>place <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">15.34</span>, <span class="fl">75.13</span>, <span class="sc">+</span><span class="fl">5.5</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>jd <span class="ot">&lt;-</span> <span class="fu">gregorian_to_jd</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">2022</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sunrise</span>(jd, place)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sunset</span>(jd, place)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sun_longitude</span>(jd)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">moon_longitude</span>(jd)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lunar_phase</span>(jd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="scope" class="level2">
-<h2 class="anchored" data-anchor-id="scope">Scope</h2>
-<p>VedicDateTime implements the five key Panchanga entities:</p>
-<ul>
-<li><strong>tithi</strong></li>
-<li><strong>vaara</strong></li>
-<li><strong>nakshatra</strong></li>
-<li><strong>yoga</strong></li>
-<li><strong>karana</strong></li>
-</ul>
-<p>It also provides supporting functions for related entities and astronomical calculations, including:</p>
-<ul>
-<li>sunrise/sunset, moonrise/moonset</li>
-<li>solar/lunar longitudes</li>
-<li>rashi, lagna, masa, ritu, samvatsara</li>
-<li>Gregorian ↔︎ Julian day conversions</li>
-</ul>
+<section id="recipe-5-use-vedic-features-in-a-simple-model-template" class="level2">
+<h2 class="anchored" data-anchor-id="recipe-5-use-vedic-features-in-a-simple-model-template">Recipe 5 — Use Vedic features in a simple model (template)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Template only: replace y with your time-series response</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df$y &lt;- ...</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># model &lt;- lm(y ~ factor(tithi) + factor(nakshatra) + factor(vaara), data = df)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(model)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="implementation-notes-paper-summary" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-notes-paper-summary">Implementation notes (paper summary)</h2>
-<p>The paper describes algorithmic design choices including:</p>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
-<li>computations anchored to <strong>local sunrise</strong> (location-dependent)</li>
-<li><strong>Lahiri Ayanamsa</strong> for sidereal corrections</li>
-<li>use of <strong>Swiss Ephemeris</strong> (via R dependencies) for astronomical computations</li>
-<li><strong>inverse Lagrange interpolation</strong> (with 0.25-day offsets) to compute end times</li>
-</ul>
-</section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>VedicDateTime is distributed under <strong>GPL-3</strong>.</p>
-</section>
-<section id="funding-acknowledgement" class="level2">
-<h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
-<p>Early development of this package was funded through <strong>Google Summer of Code (GSoC)</strong> in multiple years.</p>
-</section>
-<section id="limitations-future-scope-as-stated-in-the-paper" class="level2">
-<h2 class="anchored" data-anchor-id="limitations-future-scope-as-stated-in-the-paper">Limitations &amp; future scope (as stated in the paper)</h2>
-<p>The paper notes future improvements such as:</p>
-<ul>
-<li>adding visualization capabilities for calendar entities</li>
-<li>adding native R date-time object support (e.g., S4 classes) for Vedic date-time handling</li>
+<li>Package (CRAN): <a href="https://cran.r-project.org/package=VedicDateTime">cran.r-project.org/package=VedicDateTime</a></li>
+<li>Source (GitHub): <a href="https://github.com/neerajdhanraj/VedicDateTime">github.com/neerajdhanraj/VedicDateTime</a></li>
+<li>API docs: <a href="pkgdown/index.html">API (pkgdown)</a></li>
 </ul>
 
 

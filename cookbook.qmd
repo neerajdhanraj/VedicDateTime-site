@@ -1,0 +1,95 @@
+---
+title: "Cookbook"
+---
+
+This page provides practical recipes for common tasks with **VedicDateTime**.
+
+## Recipe 1 — Compute Panchanga for a single date and place
+
+```r
+library(VedicDateTime)
+
+place <- c(15.34, 75.13, +5.5)
+jd <- gregorian_to_jd(8, 9, 2022)
+
+tithi(jd, place)
+vaara(jd)
+nakshatra(jd, place)
+yoga(jd, place)
+karana(jd, place)
+```
+
+## Recipe 2 — Add Vedic features to a data frame
+
+```r
+library(VedicDateTime)
+
+place <- c(15.34, 75.13, +5.5)
+
+df <- data.frame(
+  dd = c(8, 9, 10),
+  mm = c(9, 9, 9),
+  yyyy = c(2022, 2022, 2022)
+)
+
+df$jd <- mapply(gregorian_to_jd, df$dd, df$mm, df$yyyy)
+
+# First element is typically the index; outputs may include end-times too
+# (see the function help / pkgdown for details)
+
+df$tithi <- sapply(df$jd, function(j) tithi(j, place)[1])
+
+df$vaara <- sapply(df$jd, function(j) vaara(j))
+
+df$nakshatra <- sapply(df$jd, function(j) nakshatra(j, place)[1])
+
+df$yoga <- sapply(df$jd, function(j) yoga(j, place)[1])
+
+df
+```
+
+## Recipe 3 — Convert numeric indices to names
+
+```r
+library(VedicDateTime)
+
+jd <- 2459778
+place <- c(15.34, 75.13, +5.5)
+
+get_vaara_name(jd)
+get_tithi_name(jd, place)
+get_nakshatra_name(jd, place)
+get_yoga_name(jd, place)
+```
+
+## Recipe 4 — Sunrise/sunset and longitudes
+
+```r
+library(VedicDateTime)
+
+place <- c(15.34, 75.13, +5.5)
+jd <- gregorian_to_jd(8, 9, 2022)
+
+sunrise(jd, place)
+sunset(jd, place)
+
+sun_longitude(jd)
+moon_longitude(jd)
+lunar_phase(jd)
+```
+
+## Recipe 5 — Use Vedic features in a simple model (template)
+
+```r
+# Template only: replace y with your time-series response
+# df$y <- ...
+
+# model <- lm(y ~ factor(tithi) + factor(nakshatra) + factor(vaara), data = df)
+# summary(model)
+```
+
+## References
+
+- Package (CRAN): [cran.r-project.org/package=VedicDateTime](https://cran.r-project.org/package=VedicDateTime)
+- Source (GitHub): [github.com/neerajdhanraj/VedicDateTime](https://github.com/neerajdhanraj/VedicDateTime)
+- API docs: [API (pkgdown)](pkgdown/index.html)

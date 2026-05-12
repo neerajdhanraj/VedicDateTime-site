@@ -136,42 +136,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./getting-started.html"> 
-<span class="menu-text">Getting started</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="./getting-started.html">
+ <span class="dropdown-text">Getting started</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./reference.html"> 
-<span class="menu-text">Reference</span></a>
+        <li>
+    <a class="dropdown-item" href="./cookbook.html">
+ <span class="dropdown-text">Cookbook</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./pkgdown/"> 
-<span class="menu-text">API (pkgdown)</span></a>
+        <li>
+    <a class="dropdown-item" href="./accuracy.html">
+ <span class="dropdown-text">Accuracy &amp; conventions</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./articles.html"> 
-<span class="menu-text">Tutorials &amp; case studies</span></a>
+        <li>
+    <a class="dropdown-item" href="./reference.html">
+ <span class="dropdown-text">Reference (overview)</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
-<span class="menu-text">Publication</span></a>
+        <li>
+    <a class="dropdown-item" href="./pkgdown/">
+ <span class="dropdown-text">API (pkgdown)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./articles.html">
+ <span class="dropdown-text">Tutorials &amp; case studies</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./roadmap.html"> 
 <span class="menu-text">Roadmap &amp; AI</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./faq.html"> 
-<span class="menu-text">FAQ</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">More</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-more">    
+        <li>
+    <a class="dropdown-item" href="./publications.html">
+ <span class="dropdown-text">Publication</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./contributing.html" aria-current="page"> 
-<span class="menu-text">Contributing</span></a>
+        <li>
+    <a class="dropdown-item" href="./contributing.html">
+ <span class="dropdown-text">Contributing</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
-<span class="menu-text">Contact</span></a>
+        <li>
+    <a class="dropdown-item" href="./development.html">
+ <span class="dropdown-text">Development</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./faq.html">
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./about.html">
+ <span class="dropdown-text">About</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./changelog.html">
+ <span class="dropdown-text">Changelog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./contact.html">
+ <span class="dropdown-text">Contact</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -201,6 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#where-to-contribute" id="toc-where-to-contribute" class="nav-link active" data-scroll-target="#where-to-contribute">Where to contribute</a></li>
   <li><a href="#ways-to-contribute" id="toc-ways-to-contribute" class="nav-link" data-scroll-target="#ways-to-contribute">Ways to contribute</a></li>
+  <li><a href="#good-first-contributions" id="toc-good-first-contributions" class="nav-link" data-scroll-target="#good-first-contributions">Good first contributions</a></li>
   <li><a href="#reporting-a-bug-checklist" id="toc-reporting-a-bug-checklist" class="nav-link" data-scroll-target="#reporting-a-bug-checklist">Reporting a bug (checklist)</a></li>
   <li><a href="#development-setup" id="toc-development-setup" class="nav-link" data-scroll-target="#development-setup">Development setup</a></li>
   <li><a href="#build" id="toc-build" class="nav-link" data-scroll-target="#build">Build</a></li>
@@ -250,6 +285,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>New calendar entities / helpers</li>
 </ul>
 </section>
+<section id="good-first-contributions" class="level2">
+<h2 class="anchored" data-anchor-id="good-first-contributions">Good first contributions</h2>
+<ul>
+<li>Documentation improvements (examples, website pages, vignettes)</li>
+<li>Tests for edge cases (skipped entities, midnight-crossing end times)</li>
+<li>Performance improvements for batch conversions</li>
+</ul>
+<p>A good place to start is GitHub Issues:</p>
+<ul>
+<li><a href="https://github.com/neerajdhanraj/VedicDateTime/issues">Issues</a></li>
+</ul>
+</section>
 <section id="reporting-a-bug-checklist" class="level2">
 <h2 class="anchored" data-anchor-id="reporting-a-bug-checklist">Reporting a bug (checklist)</h2>
 <p>Please include:</p>
@@ -260,30 +307,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Place inputs: latitude, longitude, timezone offset</li>
 <li>Output of <code>sessionInfo()</code></li>
 </ol>
+<p>Bug report template snippet:</p>
+<pre class="text"><code>Date(s):
+Place: c(lat, lon, tz_offset)
+Function call:
+Expected:
+Actual:
+R sessionInfo():</code></pre>
 </section>
 <section id="development-setup" class="level2">
 <h2 class="anchored" data-anchor-id="development-setup">Development setup</h2>
 <p>Clone the repository and install development tools:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>, <span class="st">"testthat"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>, <span class="st">"testthat"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Install from source (development workflow):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="build" class="level2">
 <h2 class="anchored" data-anchor-id="build">Build</h2>
 <p>Build the package (including compact vignettes):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="run-checks" class="level2">
 <h2 class="anchored" data-anchor-id="run-checks">Run checks</h2>
 <p>Local check:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>(<span class="at">build_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">check</span>(<span class="at">build_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>CRAN-style check using rhub:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("rhub")</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rhub<span class="sc">::</span><span class="fu">check_for_cran</span>(<span class="at">check_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("rhub")</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>rhub<span class="sc">::</span><span class="fu">check_for_cran</span>(<span class="at">check_args =</span> <span class="fu">c</span>(<span class="st">"--compact-vignettes=gs+qpdf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="run-tests" class="level2">
 <h2 class="anchored" data-anchor-id="run-tests">Run tests</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="funding-acknowledgement" class="level2">
 <h2 class="anchored" data-anchor-id="funding-acknowledgement">Funding acknowledgement</h2>
@@ -722,8 +776,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./publications.html">
-<p>Publication</p>
+    <a class="nav-link" href="./contact.html">
+<p>Contact</p>
 </a>
   </li>  
 </ul>
